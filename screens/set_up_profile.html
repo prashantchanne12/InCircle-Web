@@ -17,19 +17,57 @@
             <h2>Set up your Profile</h2>
             <form class="form-group profile">
                 <img src="" alt="" class="profile-img">
+                <input type="file" id="img" name="img">
                 <div class="form-group">
                     <label for="username" class="user-text">Create username</label>
-                    <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Username"
+                        required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Invalid username
+                    </div>
                     <small class="form-text text-muted">Should be between 3 to 8</small>
                 </div>
                 <div class="form-group">
                     <label for="displayName" class="display-name-text">Display Name</label>
-                    <input type="text" class="form-control" id="displayName" name="displayName">
+                    <input type="text" class="form-control" id="displayName" name="displayName" required>
                 </div>
                 <button type="submit" class="btn btn-primary my-2">Submit</button>
             </form>
         </div>
     </div>
+
+    <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-firestore.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-auth.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-storage.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyD-dSeT8rBxdyv4xpn9EAmQYhcsPR2fnO0",
+            authDomain: "incircle-2666d.firebaseapp.com",
+            databaseURL: "https://incircle-2666d.firebaseio.com",
+            projectId: "incircle-2666d",
+            storageBucket: "incircle-2666d.appspot.com",
+            messagingSenderId: "684790132195",
+            appId: "1:684790132195:web:02514873af16f860cf44d6",
+            measurementId: "G-HCWJGCPX0B"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        var db = firebase.firestore();
+
+    </script>
+
     <script src="../scripts/profile.js"></script>
 </body>
 

@@ -4,6 +4,7 @@ loginBtn.addEventListener('click', e => {
     siginWithGoogle();
 });
 
+
 function siginWithGoogle() {
     var provider = new firebase.auth.GoogleAuthProvider();
 
@@ -44,9 +45,8 @@ function createUserInFirestore(userData) {
         .then(() => {
             console.log(`${userData.displayName} Added`);
 
-            // ADDING DATA TO LOCAL STORAG
-            localStorage.setItem('displayName', userData.displayName);
-            localStorage.setItem('profileUrl', userData.photoURL);
+            // ADDING CURRENT USER TO LOCAL STORAG
+            localStorage.setItem('currentUser', JSON.stringify(user));
 
             window.location.replace('./screens/set_up_profile.html');
 
