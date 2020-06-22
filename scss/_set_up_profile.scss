@@ -25,6 +25,19 @@ h2 {
   margin-top: 1rem;
 }
 
+.loader {
+  display: none;
+  margin: auto;
+  position: absolute;
+  top: 45%;
+  left: 47%;
+  z-index: 1;
+  img {
+    height: 80px;
+    width: 80px;
+  }
+}
+
 .user-text {
   padding-top: 2rem;
   color: $primary-color;

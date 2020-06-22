@@ -5,13 +5,15 @@ const img = document.querySelector('img');
 let file;
 
 const user = JSON.parse(localStorage.getItem('currentUser'));
+const loader = document.querySelector('.loader');
+
 
 let displayName = user.displayName ? user.displayName : 'HelloCutie11';
 const profileUrl = user.photoUrl ? user.photoUrl : 'https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png';
 
 
 img.setAttribute('src', profileUrl);
-img.style = 'width:110px; height:125px; padding-top:1rem;'
+img.style = 'width:110px; height:135px; padding-top:1rem;'
 form.displayName.value = displayName;
 
 inputFile.addEventListener('change', e => {
@@ -44,11 +46,14 @@ form.addEventListener('submit', e => {
             form.username.classList.add('is-valid');
 
             if (file) {
+                loader.style.display = 'block';
                 uploadImage(file);
             } else {
+                loader.style.display = 'block';
                 addDataInFirestore(user.photoUrl);
             }
         } else {
+            loader.style.display = 'none';
             form.username.classList.remove('is-valid');
             form.username.classList.add('is-invalid');
         }
@@ -93,6 +98,8 @@ function addDataInFirestore(url) {
         user.photoUrl = url;
 
         localStorage.setItem('currentUser', JSON.stringify(user));
+
+        loader.style.display = 'none';
 
 
     }).catch(err => {
