@@ -20,6 +20,11 @@ form > img {
   margin: auto;
 }
 
+.alert-danger,
+.alert-success {
+  display: none;
+}
+
 form {
   #img-placeholder {
     padding-top: 1rem;

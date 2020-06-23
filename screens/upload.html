@@ -24,6 +24,12 @@
         </section>
 
         <section id="upload">
+            <div class="alert alert-success" role="alert">
+                Uploaded Successfully!
+            </div>
+            <div class="alert alert-danger" role="alert">
+                Please select image
+            </div>
             <div class="card-upload">
                 <form class="form-group">
                     <img src="../images/placeholder.png" alt="">
@@ -40,10 +46,41 @@
                     <button class="btn btn-primary">Post</button>
                 </form>
             </div>
-
+            <div class="loader">
+                <img src="../images/loader.gif" alt="">
+            </div>
         </section>
 
     </div>
+
+    <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-firestore.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-auth.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-storage.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyD-dSeT8rBxdyv4xpn9EAmQYhcsPR2fnO0",
+            authDomain: "incircle-2666d.firebaseapp.com",
+            databaseURL: "https://incircle-2666d.firebaseio.com",
+            projectId: "incircle-2666d",
+            storageBucket: "incircle-2666d.appspot.com",
+            messagingSenderId: "684790132195",
+            appId: "1:684790132195:web:02514873af16f860cf44d6",
+            measurementId: "G-HCWJGCPX0B"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        var db = firebase.firestore();
+
+    </script>
     <script src="../scripts/upload.js"></script>
 </body>
 
