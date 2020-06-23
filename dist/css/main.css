@@ -201,8 +201,7 @@ form button {
   display: flex;
   align-items: center; }
   #user-profile .header img {
-    width: 150px;
-    height: 150px; }
+    width: 150px; }
   #user-profile .header .user-info {
     padding-left: 4rem;
     display: flex;
@@ -244,8 +243,33 @@ form button {
 #user-profile .user-posts {
   padding-top: 2rem;
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(3, 250px);
   grid-gap: 0.5rem; }
   #user-profile .user-posts img {
     width: 100%;
-    height: 180px; }
+    height: 260px; }
+
+#user-profile .loader-2 {
+  display: none;
+  margin: auto;
+  position: absolute;
+  top: 45%;
+  left: 49%;
+  z-index: 1; }
+  #user-profile .loader-2 img {
+    height: 80px;
+    width: 80px; }
+
+#user-profile .no-posts {
+  display: none;
+  padding-top: 1.1rem;
+  padding-bottom: 2rem;
+  position: relative; }
+  #user-profile .no-posts img {
+    width: 100%;
+    height: 250px; }
+  #user-profile .no-posts h2 {
+    position: absolute;
+    bottom: 0;
+    left: 40%;
+    margin: 0 auto; }
