@@ -13,7 +13,7 @@ const profileUrl = user.photoUrl ? user.photoUrl : 'https://www.pngitem.com/pimg
 
 
 img.setAttribute('src', profileUrl);
-img.style = 'width:110px; height:135px; padding-top:1rem;'
+img.style = 'width:110px; height:135px; padding-top:1rem; display:inline-block;'
 form.displayName.value = displayName;
 
 inputFile.addEventListener('change', e => {

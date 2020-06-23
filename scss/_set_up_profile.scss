@@ -2,11 +2,12 @@
   background-color: #fff;
   box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.1);
   border: 0;
+  margin: 0 auto;
   margin-top: 3rem;
   height: 85vh;
-  display: block;
   flex-direction: column;
   padding: 2rem;
+  position: relative;
 }
 
 h2 {
@@ -15,14 +16,9 @@ h2 {
   color: $primary-color;
 }
 
-.img {
-  margin-top: 1rem;
-  height: 50px;
-  width: 50px;
-}
-
 #img {
-  margin-top: 1rem;
+  padding-top: 1rem;
+  display: block;
 }
 
 .loader {
@@ -55,5 +51,7 @@ input[type="text"] {
 }
 
 .btn-primary {
+  display: block;
+  margin-left: 0;
   background-color: $primary-color;
 }

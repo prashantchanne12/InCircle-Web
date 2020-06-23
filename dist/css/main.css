@@ -17,14 +17,18 @@ body {
 .container {
   max-width: 550px; }
 
-.card {
+.card-login {
   height: 60vh;
   background-color: #fff;
   box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.1);
   border: 0;
   margin-top: 3rem;
   display: flex;
-  align-items: center; }
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 500px;
+  margin-top: 2rem; }
 
 .main-text {
   padding-top: 1rem;
@@ -73,24 +77,21 @@ body {
   background-color: #fff;
   box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.1);
   border: 0;
+  margin: 0 auto;
   margin-top: 3rem;
   height: 85vh;
-  display: block;
   flex-direction: column;
-  padding: 2rem; }
+  padding: 2rem;
+  position: relative; }
 
 h2 {
   font-weight: bold;
   padding-top: 1rem;
   color: #0984e3; }
 
-.img {
-  margin-top: 1rem;
-  height: 50px;
-  width: 50px; }
-
 #img {
-  margin-top: 1rem; }
+  padding-top: 1rem;
+  display: block; }
 
 .loader {
   display: none;
@@ -117,6 +118,8 @@ input[type="text"] {
   width: 80%; }
 
 .btn-primary {
+  display: block;
+  margin-left: 0;
   background-color: #0984e3; }
 
 .container {
@@ -204,7 +207,7 @@ form button {
     padding-left: 4rem;
     display: flex;
     flex-direction: column; }
-    #user-profile .header .user-info #disply-name {
+    #user-profile .header .user-info #display-name {
       font-size: 1.5rem; }
     #user-profile .header .user-info #username {
       padding-top: 2px;
