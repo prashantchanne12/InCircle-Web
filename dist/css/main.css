@@ -137,3 +137,55 @@ input[type="text"] {
         color: grey; }
         #navbar ul li a .current {
           color: #0984e3; }
+
+.card-upload {
+  background-color: #fff;
+  box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.1);
+  border: 0;
+  height: 85vh;
+  display: block;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 2rem; }
+  .card-upload input {
+    width: 75%; }
+
+form > img {
+  display: block;
+  width: 550px;
+  height: 250px;
+  margin: auto; }
+
+form #img-placeholder {
+  padding-top: 1rem;
+  display: block;
+  margin: 0 auto; }
+
+form .caption-field {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem; }
+  form .caption-field img {
+    width: 70px;
+    height: 60px; }
+  form .caption-field #caption {
+    margin-left: 1rem; }
+
+form .location-field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem; }
+  form .location-field i {
+    color: #0984e3;
+    text-align: center;
+    margin-left: 1rem; }
+  form .location-field #location {
+    margin-left: 2.9rem; }
+
+form button {
+  margin-top: 2rem;
+  margin-left: 4rem;
+  width: 30%; }

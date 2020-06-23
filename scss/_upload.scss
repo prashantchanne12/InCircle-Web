@@ -1,0 +1,67 @@
+.card-upload {
+  background-color: #fff;
+  box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.1);
+  border: 0;
+  height: 85vh;
+  display: block;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 2rem;
+
+  input {
+    width: 75%;
+  }
+}
+
+form > img {
+  display: block;
+  width: 550px;
+  height: 250px;
+  margin: auto;
+}
+
+form {
+  #img-placeholder {
+    padding-top: 1rem;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .caption-field {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    img {
+      width: 70px;
+      height: 60px;
+    }
+
+    #caption {
+      margin-left: 1rem;
+    }
+  }
+
+  .location-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+
+    i {
+      color: $primary-color;
+      text-align: center;
+      margin-left: 1rem;
+    }
+
+    #location {
+      margin-left: 2.9rem;
+    }
+  }
+  button {
+    margin-top: 2rem;
+    margin-left: 4rem;
+    width: 30%;
+  }
+}

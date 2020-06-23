@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InCircle | Upload</title>
+    <script src="https://kit.fontawesome.com/7f1e1a2168.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="../dist/css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <section id="navbar">
+            <h2>InCircle</h2>
+            <ul>
+                <li><a href="./home.html"><i class="fas fa-home"></i></a></li>
+                <li><a href="#"><i class="fas fa-comment-alt"></i></a></li>
+                <li><a href="./upload.html"><i class="fas fa-plus-square current"></i></a></li>
+                <li><a href="#"><i class="fas fa-user-circle"></i></a></li>
+            </ul>
+        </section>
+
+        <section id="upload">
+            <div class="card-upload">
+                <form class="form-group">
+                    <img src="../images/placeholder.png" alt="">
+                    <input type="file" id="img-placeholder" name="img">
+                    <div class="caption-field">
+                        <img src="../images/default_profile.png" alt="">
+                        <input type="text" class="form-control" name="caption" id="caption"
+                            placeholder="Write a Caption..">
+                    </div>
+                    <div class="location-field">
+                        <i class="fas fa-map-marker-alt fa-2x"></i>
+                        <input type="text" class="form-control" name="location" id="location" placeholder="Location">
+                    </div>
+                    <button class="btn btn-primary">Post</button>
+                </form>
+            </div>
+
+        </section>
+
+    </div>
+    <script src="../scripts/upload.js"></script>
+</body>
+
+</html>
