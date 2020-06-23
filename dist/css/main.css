@@ -4,6 +4,12 @@
   padding: 0;
   box-sizing: border-box; }
 
+ul {
+  list-style: none; }
+
+a {
+  text-decoration: none; }
+
 body {
   background-color: #fafafa;
   font-family: "Montserrat", sans-serif; }
@@ -68,7 +74,7 @@ body {
   box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.1);
   border: 0;
   margin-top: 3rem;
-  height: 90vh;
+  height: 85vh;
   display: block;
   flex-direction: column;
   padding: 2rem; }
@@ -112,3 +118,22 @@ input[type="text"] {
 
 .btn-primary {
   background-color: #0984e3; }
+
+.container {
+  max-width: 800px;
+  margin: auto; }
+
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff; }
+  #navbar ul {
+    display: flex; }
+    #navbar ul li {
+      padding: 1.5rem 1.5rem;
+      justify-content: center;
+      align-items: center; }
+      #navbar ul li a {
+        color: grey; }
+        #navbar ul li a .current {
+          color: #0984e3; }

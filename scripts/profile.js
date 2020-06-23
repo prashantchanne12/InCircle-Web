@@ -101,6 +101,7 @@ function addDataInFirestore(url) {
 
         loader.style.display = 'none';
 
+        window.location.replace('../screens/home.html');
 
     }).catch(err => {
         console.log('Error: ', err);

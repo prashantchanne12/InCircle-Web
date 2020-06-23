@@ -1,0 +1,27 @@
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+
+  ul {
+    display: flex;
+
+    li {
+      padding: 1.5rem 1.5rem;
+      justify-content: center;
+      align-items: center;
+
+      a {
+        color: grey;
+        .current {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
