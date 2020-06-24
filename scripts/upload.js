@@ -9,7 +9,6 @@ const profile_img = document.querySelector('.caption-field>img');
 
 let file;
 const user = JSON.parse(localStorage.getItem('currentUser'));
-
 profile_img.setAttribute('src', user.photoUrl);
 
 form.addEventListener('submit', e => {
@@ -29,6 +28,7 @@ form.addEventListener('submit', e => {
 
 });
 
+// UPLOAD POST IN FIREBASE STORAGE
 function uploadPost(file, caption, location) {
     loader.style.display = 'block';
 
@@ -50,6 +50,7 @@ function uploadPost(file, caption, location) {
     });
 }
 
+// CREATE POST IN FIRESTORE DATABASE
 function createPostInFirestore(url, caption, location) {
     const postId = new Date().getTime().toString();
     db.collection('posts')
@@ -83,6 +84,7 @@ function createPostInFirestore(url, caption, location) {
             console.log('Error ', err);
         });
 }
+
 
 inputFile.addEventListener('change', e => {
     console.log(inputFile.files[0]);

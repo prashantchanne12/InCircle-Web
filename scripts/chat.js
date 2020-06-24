@@ -20,7 +20,7 @@ search_input.addEventListener('keyup', e => {
                 user_result.innerHTML = '';
                 querySnapshot.forEach(document => {
                     if (count_2 <= 5) {
-                        addUser(document.data());
+                        addUser(document.data(), document.id);
                         count_2++;
                     }
                 });
@@ -60,20 +60,32 @@ form.addEventListener('submit', e => {
         });
 });
 
-function addUser(data) {
+function addUser(data, id) {
     const html = `
                 <img src="${data.photoUrl}" alt="">
                 <div class="search-user-info">
                     <span id="display-name">${data.displayName}</span>
                     <span id="user-name">${data.username}</span>
                 </div>
+                <button type="button" class="btn btn-link user-click" doc-id="${id}">view</button>
+
     `;
 
     let a = document.createElement('div');
     a.id = 'user-result'
+    a.docId = id;
     a.className = 'card-search'
     a.innerHTML += html;
 
     user_result.appendChild(a);
 
 }
+
+user_result.addEventListener('click', e => {
+    if (e.target.classList.contains('user-click')) {
+        user_id = e.target.getAttribute('doc-id');
+        localStorage.setItem('current_profile', user_id);
+        window.location = '../screens/user_profile.html';
+    }
+});
+

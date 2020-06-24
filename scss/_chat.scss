@@ -16,6 +16,7 @@
 
 #result {
   #user-result {
+    position: relative;
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
     display: flex;
@@ -43,6 +44,11 @@
     img {
       width: 70px;
       height: 70px;
+    }
+
+    button {
+      position: absolute;
+      right: 10%;
     }
   }
 }

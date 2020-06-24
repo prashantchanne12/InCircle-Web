@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InCircle | Profile</title>
+    <script src="https://kit.fontawesome.com/7f1e1a2168.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="../dist/css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <section id="navbar">
+            <h2>InCircle</h2>
+        </section>
+        <section id="user-profile" style="padding-top: 1rem;">
+            <div class="header card-user-profile">
+                <img src="../images/default_profile.png" alt="" id="profile-image">
+                <div class="user-info">
+                    <span id="display-name">Display name</span>
+                    <span id="username">Username</span>
+                    <button class="btn btn-info">Edit Profile</button>
+                </div>
+            </div>
+            <div class="counts">
+                <span id="post-count">10</span>
+                <span id="followers-count">100</span>
+                <span id="following-count">80</span>
+            </div>
+            <div class="counts-text">
+                <span id="post">Posts</span>
+                <span>Followers</span>
+                <span>Following</span>
+            </div>
+
+            <div class="icons">
+                <i class="fas fa-border-all fa-lg current"></i>
+                <i class="fas fa-list fa-lg"></i>
+            </div>
+            <div class="loader-2">
+                <img src="../images/loader_2.gif" alt="">
+            </div>
+
+            <div class="no-posts">
+                <img src="../svg/notPost.svg" alt="">
+                <h2>No Posts</h2>
+            </div>
+
+            <div class="user-posts">
+            </div>
+
+
+        </section>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
+
+        <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-app.js"></script>
+
+        <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-firestore.js"></script>
+
+        <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-auth.js"></script>
+
+        <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-analytics.js"></script>
+
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyD-dSeT8rBxdyv4xpn9EAmQYhcsPR2fnO0",
+                authDomain: "incircle-2666d.firebaseapp.com",
+                databaseURL: "https://incircle-2666d.firebaseio.com",
+                projectId: "incircle-2666d",
+                storageBucket: "incircle-2666d.appspot.com",
+                messagingSenderId: "684790132195",
+                appId: "1:684790132195:web:02514873af16f860cf44d6",
+                measurementId: "G-HCWJGCPX0B"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+            var db = firebase.firestore();
+
+        </script>
+        <script src="../scripts/user_profile.js"></script>
+</body>
+
+</html>

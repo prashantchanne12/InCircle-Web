@@ -248,7 +248,7 @@ form .btn-center button {
   grid-gap: 0.5rem; }
   #user-profile .user-posts img {
     width: 100%;
-    height: 260px; }
+    height: 250px; }
 
 #user-profile .loader-2 {
   display: none;
@@ -288,6 +288,7 @@ form .btn-center button {
   border: 0; }
 
 #result #user-result {
+  position: relative;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   display: flex;
@@ -308,6 +309,9 @@ form .btn-center button {
   #result #user-result img {
     width: 70px;
     height: 70px; }
+  #result #user-result button {
+    position: absolute;
+    right: 10%; }
 
 .chat-loader {
   display: none; }

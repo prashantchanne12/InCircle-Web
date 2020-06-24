@@ -10,6 +10,8 @@ profileImage.setAttribute('src', user.photoUrl);
 displayName.textContent = user.displayName;
 username.textContent = user.username;
 
+
+
 // db.collection('posts')
 //     .doc(user.id)
 //     .collection('usersPosts')
