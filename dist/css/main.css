@@ -202,7 +202,9 @@ form .btn-center button {
   display: flex;
   align-items: center; }
   #user-profile .header img {
-    width: 150px; }
+    width: 130px;
+    height: 130px;
+    border-radius: 50%; }
   #user-profile .header .user-info {
     padding-left: 4rem;
     display: flex;
@@ -246,11 +248,11 @@ form .btn-center button {
 #user-profile .user-posts {
   padding-top: 2rem;
   display: grid;
-  grid-template-columns: repeat(3, 250px);
+  grid-template-columns: repeat(3, 240px);
   grid-gap: 0.5rem; }
   #user-profile .user-posts img {
     width: 100%;
-    height: 250px; }
+    height: 220px; }
 
 #user-profile .loader-2 {
   display: none;
@@ -336,3 +338,47 @@ form .btn-center button {
   border: 0;
   padding: 0.5rem 2rem;
   display: none; }
+
+#user-post {
+  margin: 0 auto;
+  max-width: 550px; }
+  #user-post .user-post-header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 0.55rem;
+    padding-top: 0.55rem; }
+    #user-post .user-post-header img {
+      margin-left: 5px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%; }
+    #user-post .user-post-header .data-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-left: 1rem; }
+      #user-post .user-post-header .data-info #user-name {
+        font-weight: 600; }
+      #user-post .user-post-header .data-info #location {
+        font-size: 0.75rem;
+        color: grey; }
+  #user-post .post-image {
+    padding-bottom: 0.55rem; }
+    #user-post .post-image img {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      border-radius: 5px; }
+  #user-post .user-post-footer .icons i:first-child {
+    color: crimson;
+    padding-right: 10px; }
+  #user-post .user-post-footer .icons i:last-child {
+    color: #0984e3; }
+  #user-post .user-post-footer .counts span {
+    font-weight: 600; }
+  #user-post .user-post-footer .desc #user-name-desc {
+    font-weight: 600; }
+  #user-post .user-post-footer .desc #timestamp-desc {
+    display: block;
+    color: #333;
+    font-size: 0.75rem; }

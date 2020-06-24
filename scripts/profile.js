@@ -33,7 +33,7 @@ loader.style.display = 'block';
 let count = 0;
 db.collection('posts')
     .doc(user.id)
-    .collection('usersPosts')
+    .collection('userPosts')
     .get()
     .then(querySnapshot => {
         querySnapshot.forEach(doc => {
@@ -61,26 +61,21 @@ function addImage(data, id) {
 
 }
 
-userPosts.addEventListener('click', e => {
-    if (e.target.tagName === 'IMG') {
-        localStorage.setItem('currentPost',)
-        // HANDLE POST VIEW
-        window.location = '../screens/post.html';
-    }
-});
-
 countPosts()
 countFollowers();
 countFollowing();
 
 
-// userPosts.addEventListener('click', e => {
-//     if (e.target.tagName === 'IMG') {
-//         localStorage.setItem('currentPost',)
-//         // HANDLE POST VIEW
-//         window.location = '../screens/post.html';
-//     }
-// });
+userPosts.addEventListener('click', e => {
+    if (e.target.tagName === 'IMG') {
+        const postId = e.target.getAttribute('doc-id');
+        localStorage.setItem('currentPost', postId);
+        localStorage.setItem('current_profile', user.id);
+        window.location = '../screens/post.html';
+    }
+});
+
+
 let following = 0;
 let followers = 0;
 let posts = 0;
@@ -120,7 +115,7 @@ function countFollowers() {
 function countPosts() {
     db.collection('posts')
         .doc(user.id)
-        .collection('usersPosts')
+        .collection('userPosts')
         .get()
         .then(querySnapshot => {
             querySnapshot.forEach(document => {
@@ -131,5 +126,3 @@ function countPosts() {
             console.log(err);
         });
 }
-
-console.log(user.id);

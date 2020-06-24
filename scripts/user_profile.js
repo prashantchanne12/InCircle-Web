@@ -158,3 +158,11 @@ unfollowBtn.addEventListener('click', e => {
     // ADD USER TO YOUR FOLLOWING LIST
 });
 
+
+userPosts.addEventListener('click', e => {
+    if (e.target.tagName === 'IMG') {
+        const postId = e.target.getAttribute('doc-id');
+        localStorage.setItem('currentPost', postId);
+        window.location = '../screens/post.html';
+    }
+});
