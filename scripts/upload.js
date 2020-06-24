@@ -55,7 +55,7 @@ function createPostInFirestore(url, caption, location) {
     const postId = new Date().getTime().toString();
     db.collection('posts')
         .doc(user.id)
-        .collection('usersPosts')
+        .collection('userPosts')
         .doc(postId)
         .set({
             postId: postId,

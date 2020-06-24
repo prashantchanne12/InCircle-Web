@@ -6,6 +6,10 @@ const user = JSON.parse(localStorage.getItem('currentUser'));
 const noPost = document.querySelector('.no-posts');
 const loader = document.querySelector('.loader-2');
 
+const postCount = document.querySelector('#post-count');
+const followersCount = document.querySelector('#followers-count');
+const followingCount = document.querySelector('#following-count');
+
 profileImage.setAttribute('src', user.photoUrl);
 displayName.textContent = user.displayName;
 username.textContent = user.username;
@@ -64,3 +68,68 @@ userPosts.addEventListener('click', e => {
         window.location = '../screens/post.html';
     }
 });
+
+countPosts()
+countFollowers();
+countFollowing();
+
+
+// userPosts.addEventListener('click', e => {
+//     if (e.target.tagName === 'IMG') {
+//         localStorage.setItem('currentPost',)
+//         // HANDLE POST VIEW
+//         window.location = '../screens/post.html';
+//     }
+// });
+let following = 0;
+let followers = 0;
+let posts = 0;
+
+function countFollowing() {
+    db.collection('following')
+        .doc(user.id)
+        .collection('userFollowing')
+        .get()
+        .then(querySnapshot => {
+            querySnapshot.forEach(document => {
+                following++;
+            });
+            followingCount.textContent = following.toString();
+
+        }).catch(err => {
+            console.log('Error: ', err);
+        });
+}
+
+function countFollowers() {
+    db.collection('followers')
+        .doc(user.id)
+        .collection('userFollowers')
+        .get()
+        .then(querySnapshot => {
+            querySnapshot.forEach(document => {
+                followers++;
+            });
+            followersCount.textContent = followers.toString();
+
+        }).catch(err => {
+            console.log(err);
+        });
+}
+
+function countPosts() {
+    db.collection('posts')
+        .doc(user.id)
+        .collection('usersPosts')
+        .get()
+        .then(querySnapshot => {
+            querySnapshot.forEach(document => {
+                posts++;
+            });
+            postCount.textContent = posts.toString();
+        }).catch(err => {
+            console.log(err);
+        });
+}
+
+console.log(user.id);
