@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InCircle | Upload</title>
+    <title>InCircle | Home</title>
     <script src="https://kit.fontawesome.com/7f1e1a2168.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -17,52 +17,51 @@
             <h2>InCircle</h2>
             <ul>
                 <li><a href="./home.html"><i class="fas fa-home"></i></a></li>
-                <li><a href="./chat.html"><i class="fas fa-comment-alt"></i></a></li>
-                <li><a href="./upload.html"><i class="fas fa-plus-square current"></i></a></li>
+                <li><a href="./chat.html"><i class="fas fa-comment-alt current"></i></a></li>
+                <li><a href="./upload.html"><i class="fas fa-plus-square"></i></a></li>
                 <li><a href="./profile.html"><i class="fas fa-user-circle"></i></a></li>
             </ul>
         </section>
 
-        <section id="upload">
-            <div class="alert alert-success" role="alert">
-                Uploaded Successfully!
-            </div>
-            <div class="alert alert-danger" role="alert">
-                Please select image
-            </div>
-            <div class="card-upload">
-                <form class="form-group">
-                    <img src="../images/placeholder.png" alt="">
-                    <input type="file" id="img-placeholder" name="img">
-                    <div class="caption-field">
-                        <img src="../images/default_profile.png" alt="">
-                        <input type="text" class="form-control" name="caption" id="caption"
-                            placeholder="Write a Caption..">
-                    </div>
-                    <div class="location-field">
-                        <i class="fas fa-map-marker-alt fa-2x"></i>
-                        <input type="text" class="form-control" name="location" id="location" placeholder="Location">
-                    </div>
-                    <div class="btn-center">
-                        <button class="btn btn-primary
-                    ">Post</button>
-                    </div>
-                </form>
-            </div>
-            <div class="loader">
-                <img src="../images/loader.gif" alt="">
-            </div>
+        <section id="search-user">
+
+            <form>
+                <div class="form-group">
+                    <label for="user-search"></label>
+                    <input type="text" class="form-control user-search" name="user" id="user"
+                        placeholder="🔍  Search user">
+                </div>
+            </form>
+
+        </section>
+        <div class="chat-loader">
+            <img src="../images/loader_2.gif" alt="">
+        </div>
+        <section id="result">
+
         </section>
 
+        <div id="no-chat">
+            <img src="../svg/search.svg" alt="">
+            <h2>Find users to chat</h2>
+        </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
 
     <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-app.js"></script>
 
     <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-firestore.js"></script>
 
     <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-auth.js"></script>
-
-    <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-storage.js"></script>
 
     <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-analytics.js"></script>
 
@@ -84,7 +83,17 @@
         var db = firebase.firestore();
 
     </script>
-    <script src="../scripts/upload.js"></script>
+    <script src="../scripts/chat.js"></script>
 </body>
 
 </html>
+
+<!-- 
+    <div id="user-result">
+                <img src="../images/default_profile.png" alt="">
+                <div class="search-user-info">
+                    <span id="display-name">DisplayName</span>
+                    <span id="user-name">Username</span>
+                </div>
+            </div>
+ -->

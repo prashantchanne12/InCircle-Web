@@ -31,7 +31,7 @@ db.collection('posts')
     .get()
     .then(querySnapshot => {
         querySnapshot.forEach(doc => {
-            addImage(doc.data());
+            addImage(doc.data(), doc.id);
             count++;
         });
         loader.style.display = 'none';
@@ -46,10 +46,19 @@ db.collection('posts')
     });
 
 
-function addImage(data) {
+function addImage(data, id) {
 
     const img = document.createElement('img');
     img.setAttribute('src', data.mediaUrl);
+    img.setAttribute('doc-id', id);
     userPosts.appendChild(img);
 
 }
+
+userPosts.addEventListener('click', e => {
+    if (e.target.tagName === 'IMG') {
+        localStorage.setItem('currentPost',)
+        // HANDLE POST VIEW
+        window.location = '../screens/post.html';
+    }
+});

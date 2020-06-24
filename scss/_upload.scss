@@ -39,7 +39,7 @@ form {
     align-items: center;
     padding: 1rem;
     img {
-      width: 70px;
+      width: 60px;
       height: 60px;
     }
 
@@ -64,9 +64,13 @@ form {
       margin-left: 2.9rem;
     }
   }
-  button {
-    margin-top: 2rem;
-    margin-left: 4rem;
-    width: 30%;
+
+  .btn-center {
+    button {
+      display: block;
+      margin-left: 4rem;
+      margin-top: 1.3rem;
+      width: 30%;
+    }
   }
 }

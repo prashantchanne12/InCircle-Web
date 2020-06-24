@@ -1,0 +1,70 @@
+#search-user {
+  input {
+    width: 35%;
+    margin: 0 auto;
+  }
+}
+
+.card-search {
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: -3px -3px 10px 1px rgba(204, 204, 204, 0.1);
+  border: 0;
+}
+
+#result {
+  #user-result {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: flex-start;
+    padding-right: 10px;
+    border-bottom: solid 1px rgba(204, 204, 204, 0.342);
+
+    .search-user-info {
+      padding-left: 2rem;
+      display: flex;
+      flex-direction: column;
+
+      #display-name {
+        font-size: 1.1rem;
+      }
+
+      #user-name {
+        padding-top: 1px;
+        color: grey;
+      }
+    }
+
+    img {
+      width: 70px;
+      height: 70px;
+    }
+  }
+}
+
+.chat-loader {
+  display: none;
+  img {
+    display: block;
+    margin: 0 auto;
+    height: 50px;
+    width: 50px;
+  }
+}
+
+#no-chat {
+  img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: 500px;
+  }
+  h2 {
+    text-align: center;
+  }
+}

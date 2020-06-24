@@ -175,7 +175,7 @@ form .caption-field {
   align-items: center;
   padding: 1rem; }
   form .caption-field img {
-    width: 70px;
+    width: 60px;
     height: 60px; }
   form .caption-field #caption {
     margin-left: 1rem; }
@@ -192,9 +192,10 @@ form .location-field {
   form .location-field #location {
     margin-left: 2.9rem; }
 
-form button {
-  margin-top: 2rem;
+form .btn-center button {
+  display: block;
   margin-left: 4rem;
+  margin-top: 1.3rem;
   width: 30%; }
 
 #user-profile .header {
@@ -273,3 +274,54 @@ form button {
     bottom: 0;
     left: 40%;
     margin: 0 auto; }
+
+#search-user input {
+  width: 35%;
+  margin: 0 auto; }
+
+.card-search {
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: -3px -3px 10px 1px rgba(204, 204, 204, 0.1);
+  border: 0; }
+
+#result #user-result {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: flex-start;
+  padding-right: 10px;
+  border-bottom: solid 1px rgba(204, 204, 204, 0.342); }
+  #result #user-result .search-user-info {
+    padding-left: 2rem;
+    display: flex;
+    flex-direction: column; }
+    #result #user-result .search-user-info #display-name {
+      font-size: 1.1rem; }
+    #result #user-result .search-user-info #user-name {
+      padding-top: 1px;
+      color: grey; }
+  #result #user-result img {
+    width: 70px;
+    height: 70px; }
+
+.chat-loader {
+  display: none; }
+  .chat-loader img {
+    display: block;
+    margin: 0 auto;
+    height: 50px;
+    width: 50px; }
+
+#no-chat img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 500px; }
+
+#no-chat h2 {
+  text-align: center; }

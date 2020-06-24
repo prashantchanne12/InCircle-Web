@@ -5,12 +5,12 @@ const img = document.querySelector('form>img');
 const alert_danger = document.querySelector('.alert-danger');
 const alert_success = document.querySelector('.alert-success');
 const loader = document.querySelector('.loader');
-
+const profile_img = document.querySelector('.caption-field>img');
 
 let file;
 const user = JSON.parse(localStorage.getItem('currentUser'));
 
-
+profile_img.setAttribute('src', user.photoUrl);
 
 form.addEventListener('submit', e => {
     e.preventDefault();
