@@ -10,9 +10,14 @@ const timeStamp = document.querySelector('#timestamp-desc');
 const userId = localStorage.getItem('current_profile');
 const currentPost = localStorage.getItem('currentPost');
 
+const post_loader = document.querySelector('.post-loader > img');
+
+
+
 getPost();
 
 function getPost() {
+    post_loader.style.display = 'block';
     db.collection('posts')
         .doc(userId)
         .collection('userPosts')
@@ -27,6 +32,7 @@ function getPost() {
 
 function updatePostUI(data) {
     postImg.setAttribute('src', data.mediaUrl);
+    post_loader.style.display = 'none';
     userLocation.textContent = data.location;
     timeStamp.textContent = data.timeStamp;
     userName.textContent = data.username;

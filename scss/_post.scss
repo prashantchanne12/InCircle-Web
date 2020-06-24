@@ -1,6 +1,19 @@
 #user-post {
   margin: 0 auto;
   max-width: 550px;
+  position: relative;
+
+  .post-loader {
+    img {
+      display: none;
+      height: 50px;
+      width: 50px;
+      position: absolute;
+      top: 45%;
+      left: 45%;
+    }
+  }
+
   .user-post-header {
     display: flex;
     align-items: center;

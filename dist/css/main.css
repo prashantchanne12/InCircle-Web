@@ -341,7 +341,15 @@ form .btn-center button {
 
 #user-post {
   margin: 0 auto;
-  max-width: 550px; }
+  max-width: 550px;
+  position: relative; }
+  #user-post .post-loader img {
+    display: none;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 45%;
+    left: 45%; }
   #user-post .user-post-header {
     display: flex;
     align-items: center;
