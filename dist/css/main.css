@@ -176,7 +176,8 @@ form .caption-field {
   padding: 1rem; }
   form .caption-field img {
     width: 60px;
-    height: 60px; }
+    height: 60px;
+    border-radius: 50%; }
   form .caption-field #caption {
     margin-left: 1rem; }
 
@@ -190,7 +191,7 @@ form .location-field {
     text-align: center;
     margin-left: 1rem; }
   form .location-field #location {
-    margin-left: 2.9rem; }
+    margin-left: 2.4rem; }
 
 form .btn-center button {
   display: block;
@@ -371,12 +372,21 @@ form .btn-center button {
         font-size: 0.75rem;
         color: grey; }
   #user-post .post-image {
-    padding-bottom: 0.55rem; }
+    padding-bottom: 0.55rem;
+    position: relative; }
     #user-post .post-image img {
       display: block;
       margin: 0 auto;
       width: 100%;
       border-radius: 5px; }
+    #user-post .post-image .heart {
+      display: none;
+      position: absolute;
+      top: 20%;
+      left: 30%;
+      width: 200px;
+      height: 200px;
+      opacity: 0.9; }
   #user-post .user-post-footer .icons i:first-child {
     color: crimson;
     padding-right: 10px; }

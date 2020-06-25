@@ -44,11 +44,21 @@
   }
   .post-image {
     padding-bottom: 0.55rem;
+    position: relative;
     img {
       display: block;
       margin: 0 auto;
       width: 100%;
       border-radius: 5px;
+    }
+    .heart {
+      display: none;
+      position: absolute;
+      top: 20%;
+      left: 30%;
+      width: 200px;
+      height: 200px;
+      opacity: 0.9;
     }
   }
 
