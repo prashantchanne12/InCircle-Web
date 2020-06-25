@@ -69,7 +69,7 @@ postImg.addEventListener('dblclick', e => {
 });
 
 likeBtn.addEventListener('click', e => {
-
+    handlLikes();
 });
 
 function checkIfLiked() {
@@ -172,7 +172,6 @@ function updateLikes() {
                     count++;
                 }
             }
-            console.log(count);
             likeCounts.textContent = `${count.toString()} Likes`
         });
 
@@ -180,5 +179,5 @@ function updateLikes() {
 
 // HANDLE COMMENTS
 commentBtn.addEventListener('click', e => {
-
+    window.location = '../screens/comments.html';
 });

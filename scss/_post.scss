@@ -68,9 +68,11 @@
         &:first-child {
           color: crimson;
           padding-right: 10px;
+          cursor: pointer;
         }
         &:last-child {
           color: $primary-color;
+          cursor: pointer;
         }
       }
     }

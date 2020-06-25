@@ -1,0 +1,60 @@
+#comment-section {
+  max-width: 600px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  #comments {
+    padding-top: 1.5rem;
+    height: 82vh;
+    .header {
+      border-bottom: 1px solid rgba(180, 180, 180, 0.2);
+      padding-top: 0.75rem;
+      padding-bottom: 0.55rem;
+      .user-info {
+        display: flex;
+        align-items: center;
+        img {
+          height: 60px;
+          width: 60px;
+          border-radius: 50%;
+          margin-left: 1rem;
+        }
+
+        .text {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          padding-left: 2rem;
+          #comment-text {
+            font-weight: 600;
+          }
+
+          #user-name {
+            font-size: 0.8rem;
+          }
+
+          #timestamp {
+            font-size: 0.75rem;
+            color: grey;
+          }
+        }
+      }
+    }
+    .loader-2 {
+      position: absolute;
+      top: 45%;
+      left: 45%;
+      display: none;
+      img {
+        height: 60px;
+        width: 60px;
+      }
+    }
+  }
+
+  #addcomment {
+    padding-left: 10rem;
+  }
+}
