@@ -12,6 +12,9 @@ const postCount = document.querySelector('#post-count');
 const followersCount = document.querySelector('#followers-count');
 const followingCount = document.querySelector('#following-count');
 
+const list = document.querySelector('.fa-list');
+let data;
+
 db.collection('users')
     .doc(userId)
     .get()
@@ -69,14 +72,6 @@ countPosts()
 countFollowers();
 countFollowing();
 
-
-// userPosts.addEventListener('click', e => {
-//     if (e.target.tagName === 'IMG') {
-//         localStorage.setItem('currentPost',)
-//         // HANDLE POST VIEW
-//         window.location = '../screens/post.html';
-//     }
-// });
 let following = 0;
 let followers = 0;
 let posts = 0;
@@ -101,15 +96,15 @@ function countFollowers() {
     db.collection('followers')
         .doc(userId)
         .collection('userFollowers')
-        .get()
-        .then(querySnapshot => {
-            querySnapshot.forEach(document => {
-                followers++;
+        .onSnapshot(snapshot => {
+            snapshot.docChanges().forEach(change => {
+                if (change.type === 'added') {
+                    followers++;
+                } else {
+                    followers--;
+                }
             });
             followersCount.textContent = followers.toString();
-
-        }).catch(err => {
-            console.log(err);
         });
 }
 
@@ -133,29 +128,87 @@ function checkFollowing() {
         .doc(userId)
         .collection('userFollowers')
         .doc(user.id)
-        .get()
-        .then(documentSnapshot => {
-            if (documentSnapshot.exists) {
+        .onSnapshot(snapshot => {
+            if (snapshot.exists) {
                 unfollowBtn.style.display = 'block';
-
+                followBtn.style.display = 'none';
             } else {
                 followBtn.style.display = 'block';
+                unfollowBtn.style.display = 'none';
             }
         });
 }
 
+
 followBtn.addEventListener('click', e => {
-    console.log('follow');
+
     // ADD USER TO THE USERS FOLLOWERS LIST
+    db.collection('followers')
+        .doc(userId)
+        .collection('userFollowers')
+        .doc(user.id)
+        .set({
+            displayName: user.displayName,
+            id: user.id,
+            photoUrl: user.photoUrl,
+            username: user.username
+        }).then(() => {
+            console.log('Followed Successfully!');
+        }).catch(e => {
+            console.log('Error: ', err);
+        });
+
+    checkFollowing();
 
     // ADD USER TO YOUR FOLLOWING LIST
+    db.collection('following')
+        .doc(user.id)
+        .collection('userFollowing')
+        .doc(userId)
+        .set({
+            displayName: data.displayName,
+            id: userId,
+            photoUrl: data.photoUrl,
+            username: data.username
+        }).then(() => {
+            console.log('Added in Following list!');
+        }).catch(e => {
+            console.log('Error: ', err);
+        });
+
 });
 
 unfollowBtn.addEventListener('click', e => {
     console.log('Unfollow');
-    // ADD USER TO THE USERS FOLLOWERS LIST
+    // REMOVE USER FROM THE USERS FOLLOWERS LIST
+    db.collection('followers')
+        .doc(userId)
+        .collection('userFollowers')
+        .doc(user.id)
+        .delete()
+        .then(() => {
+            console.log('removed!');
+        }).catch(e => {
+            console.log('Error : ', e);
+        });
 
-    // ADD USER TO YOUR FOLLOWING LIST
+    checkFollowing();
+
+    // REMOVE USER FROM YOUR FOLLOWING LIST
+    db.collection('following')
+        .doc(user.id)
+        .collection('userFollowing')
+        .doc(userId)
+        .delete()
+        .then(() => {
+            console.log('Removed');
+        }).catch(e => {
+            console.log('Error: ', e);
+        });
+});
+
+list.addEventListener('click', e => {
+    console.log('click');
 });
 
 
