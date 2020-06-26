@@ -12,7 +12,10 @@ userPosts.addEventListener('click', e => {
     }
 
     if (e.target.classList.contains('fa-comment-alt')) {
-        console.log('handle comments');
+        // HANDLE COMMENTS
+        const pid = e.target.previousElementSibling.getAttribute('pid');
+        localStorage.setItem('currentPost', pid);
+        window.location = '../screens/comments.html';
     }
 });
 
