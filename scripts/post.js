@@ -18,12 +18,15 @@ const currentUserId = user.id.toString();
 
 const heartImage = document.querySelector('.heart');
 
+const isHome = localStorage.getItem('home');
 
 let isLiked;
 
-getPost();
-updateLikes();
-checkIfLiked();
+if (isHome !== true) {
+    getPost();
+    updateLikes();
+    checkIfLiked();
+}
 
 function getPost() {
     post_loader.style.display = 'block';

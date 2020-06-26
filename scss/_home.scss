@@ -1,19 +1,24 @@
 .container {
   max-width: 800px;
-  margin: auto;
+  margin: 0 auto;
 }
 
 #navbar {
   display: flex;
   justify-content: space-between;
   background-color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 
   ul {
     display: flex;
+    align-self: center;
 
     li {
-      padding: 1.5rem 1.5rem;
-      justify-content: center;
+      padding-top: 1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
       align-items: center;
 
       a {
