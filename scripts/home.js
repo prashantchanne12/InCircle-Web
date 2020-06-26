@@ -19,7 +19,9 @@ userPosts.addEventListener('click', e => {
 userPosts.addEventListener('dblclick', e => {
     if (e.target.parentElement.classList.contains('post-image')) {
         // HANDLE LIKES 
-        console.log('Handle Likes');
+        const uid = e.target.parentElement.nextElementSibling.firstElementChild.firstElementChild.getAttribute('uid');
+        const pid = e.target.parentElement.nextElementSibling.firstElementChild.firstElementChild.getAttribute('pid');
+        handlLikes(uid, pid);
     }
 });
 
