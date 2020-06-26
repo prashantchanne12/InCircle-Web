@@ -92,7 +92,7 @@ class Timeline {
                     </div>
                 </div>
                 <div class="post-loader">
-                    <img src="../images/loader_2.gif" alt="">
+                    <img src="../images/loader.gif" alt="" style="display:block; z-index:-1";>
                 </div>
             </div>
     

@@ -2,6 +2,10 @@ const user = JSON.parse(localStorage.getItem('currentUser'));
 const userPosts = document.querySelector('#user-posts');
 const currentUserId = user.id;
 let isLiked;
+const loader = document.querySelector('#user-posts>img');
+
+
+loader.style.display = 'block';
 
 userPosts.addEventListener('click', e => {
     if (e.target.classList.contains('fa-heart')) {
@@ -149,4 +153,5 @@ db.collection('timeline')
                 userPosts.appendChild(div);
             });
         });
+        loader.style.display = 'none';
     });
