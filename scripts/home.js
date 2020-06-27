@@ -137,9 +137,39 @@ function likePost(uid, pid) {
         }
         ).then(() => {
             console.log('post liked');
+
+            db.collection('posts')
+                .doc(uid)
+                .collection('userPosts')
+                .doc(pid)
+                .get()
+                .then(documentSnapshot => {
+                    // ADD NOTIFICATION TO USERS FEED
+                    db.collection('feed')
+                        .doc(uid)
+                        .collection('feedItems')
+                        .add({
+                            isSeen: false,
+                            ownerId: uid,
+                            timestamp: firebase.firestore.Timestamp.fromDate(new Date()),
+                            type: 'like',
+                            mediaUrl: documentSnapshot.data().mediaUrl,
+                            userId: user.id,
+                            postId: pid,
+                            userProfileImage: user.photoUrl,
+                            username: user.username,
+                        }).then(() => {
+                            console.log('Added Feed!');
+                        }).catch(e => {
+                            console.log('Error', e);
+                        });
+                });
+
+
         }).catch(e => {
             console.log('Erro: ', e);
         });
+
 }
 
 function unlikePost(uid, pid) {
@@ -152,43 +182,55 @@ function unlikePost(uid, pid) {
         }
         ).then(() => {
             console.log('post unliked');
+            // ADD NOTIFICATION TO USERS FEED
+            db.collection('feed')
+                .doc(uid)
+                .collection('feedItems')
+                .where('postId', '==', pid)
+                .get()
+                .then(querySnapshot => {
+                    querySnapshot.forEach(documentSnapshot => {
+                        documentSnapshot.ref.delete();
+                    });
+                    console.log('feed deleted');
+                });
         }).catch(e => {
             console.log('Erro: ', e);
         });
 }
 
 
-db.collection('timeline')
-    .doc(user.id)
-    .collection('timelinePosts')
-    .onSnapshot(snapshot => {
-        snapshot.docChanges().forEach(change => {
-            const doc = change.doc;
-            const t = new Timeline(doc.data());
-            t.createPost((post) => {
-                const div = document.createElement('div');
-                div.innerHTML = post.outerHTML;
-                userPosts.appendChild(div);
-            });
-        });
-        loader.style.display = 'none';
-    });
-
 // db.collection('timeline')
 //     .doc(user.id)
 //     .collection('timelinePosts')
-//     .get()
-//     .then(querySnapshot => {
-//         querySnapshot.forEach(documentSnapshot => {
-//             const t = new Timeline(documentSnapshot.data());
-//             t.createPost(post => {
+//     .onSnapshot(snapshot => {
+//         snapshot.docChanges().forEach(change => {
+//             const doc = change.doc;
+//             const t = new Timeline(doc.data());
+//             t.createPost((post) => {
 //                 const div = document.createElement('div');
 //                 div.innerHTML = post.outerHTML;
 //                 userPosts.appendChild(div);
 //             });
-
-
 //         });
 //         loader.style.display = 'none';
-
 //     });
+
+db.collection('timeline')
+    .doc(user.id)
+    .collection('timelinePosts')
+    .get()
+    .then(querySnapshot => {
+        querySnapshot.forEach(documentSnapshot => {
+            const t = new Timeline(documentSnapshot.data());
+            t.createPost(post => {
+                const div = document.createElement('div');
+                div.innerHTML = post.outerHTML;
+                userPosts.appendChild(div);
+            });
+
+
+        });
+        loader.style.display = 'none';
+
+    });

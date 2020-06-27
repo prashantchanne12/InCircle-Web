@@ -462,34 +462,45 @@ form .btn-center button {
   #comment-section #addcomment {
     padding-left: 10rem; }
 
-#activity {
+#activity-posts .activity {
   margin-top: 1rem;
+  padding-bottom: 1rem;
   display: flex;
-  justify-content: center; }
-  #activity .profile-img {
+  justify-content: flex-start;
+  border-bottom: 1px solid #eee;
+  border-width: 50%; }
+  #activity-posts .activity .profile-img {
     margin-left: 1rem;
     height: 60px;
     width: 60px;
     border-radius: 50%; }
-  #activity .info {
+  #activity-posts .activity .info {
     display: flex;
     justify-content: space-between; }
-    #activity .info .user-info {
+    #activity-posts .activity .info .user-info {
       margin-left: 2rem;
       display: flex;
       flex-direction: column;
       justify-content: flex-start; }
-      #activity .info .user-info #username {
+      #activity-posts .activity .info .user-info #username {
         font-weight: 600; }
-      #activity .info .user-info #detail {
+      #activity-posts .activity .info .user-info #detail {
         font-size: 0.9rem;
         color: #333; }
-      #activity .info .user-info #timestamp {
+      #activity-posts .activity .info .user-info #timestamp {
         font-size: 0.75rem;
         color: #aaa; }
-    #activity .info .info-image {
+    #activity-posts .activity .info .info-image {
       margin-left: 15rem; }
-      #activity .info .info-image img {
+      #activity-posts .activity .info .info-image img {
         height: 60px;
         width: 60px;
         border-radius: 0.5rem; }
+
+#activity-posts .activity-loader img {
+  display: none;
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  top: 50%;
+  left: 45%; }

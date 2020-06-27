@@ -21,6 +21,7 @@ const heartImage = document.querySelector('.heart');
 const isHome = localStorage.getItem('home');
 
 let isLiked;
+let mediaUrl;
 
 if (isHome !== true) {
     getPost();
@@ -45,6 +46,7 @@ function getPost() {
 
 function updatePostUI(data) {
     postImg.setAttribute('src', data.mediaUrl);
+    mediaUrl = data.mediaUrl;
     post_loader.style.display = 'none';
     userLocation.textContent = data.location;
     const when = dateFns.distanceInWordsToNow(
@@ -124,6 +126,27 @@ function handlLikes() {
             heartImage.style.display = 'none';
         }, 500);
         likeBtn.style = 'font-weight: 600;';
+
+        // ADD NOTIFICATION TO USERS FEED
+        db.collection('feed')
+            .doc(userId)
+            .collection('feedItems')
+            .add({
+                isSeen: false,
+                ownerId: userId,
+                timestamp: firebase.firestore.Timestamp.fromDate(new Date()),
+                type: 'like',
+                mediaUrl: mediaUrl,
+                userId: user.id,
+                postId: currentPost,
+                userProfileImage: user.photoUrl,
+                username: user.username,
+            }).then(() => {
+                console.log('Added Feed!');
+            }).catch(e => {
+                console.log('Error', e);
+            });
+
     }
 };
 

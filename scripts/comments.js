@@ -70,6 +70,25 @@ function submitComment(comment) {
         }).catch(e => {
             consolo.log('Error: ', e);
         });
+
+    // ADD NOTIFICATION TO USERS FEED
+    // db.collection('feed')
+    //     .doc(userId)
+    //     .collection('feedItems')
+    //     .add({
+    //         isSeen: false,
+    //         ownerId: userId,
+    //         timestamp: firebase.firestore.Timestamp.fromDate(new Date()),
+    //         type: 'like',
+    //         mediaUrl: mediaUrl,
+    //         userId: user.id,
+    //         userProfileImage: user.photoUrl,
+    //         username: user.username,
+    //     }).then(() => {
+    //         console.log('Added Feed!');
+    //     }).catch(e => {
+    //         console.log('Error', e);
+    //     });
 }
 
 

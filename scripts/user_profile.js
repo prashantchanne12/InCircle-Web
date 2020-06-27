@@ -176,6 +176,24 @@ followBtn.addEventListener('click', e => {
             console.log('Error: ', err);
         });
 
+    // ADD NOTIFICATION TO USERS FEED
+    db.collection('feed')
+        .doc(userId)
+        .collection('feedItems')
+        .add({
+            isSeen: false,
+            ownerId: userId,
+            timestamp: firebase.firestore.Timestamp.fromDate(new Date()),
+            type: 'follow',
+            userId: user.id,
+            userProfileImage: user.photoUrl,
+            username: user.username,
+        }).then(() => {
+            console.log('Added Feed!');
+        }).catch(e => {
+            console.log('Error', e);
+        });
+
 });
 
 unfollowBtn.addEventListener('click', e => {
@@ -205,6 +223,8 @@ unfollowBtn.addEventListener('click', e => {
         }).catch(e => {
             console.log('Error: ', e);
         });
+
+
 });
 
 list.addEventListener('click', e => {
