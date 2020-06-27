@@ -155,3 +155,22 @@ db.collection('timeline')
         });
         loader.style.display = 'none';
     });
+
+// db.collection('timeline')
+//     .doc(user.id)
+//     .collection('timelinePosts')
+//     .get()
+//     .then(querySnapshot => {
+//         querySnapshot.forEach(documentSnapshot => {
+//             const t = new Timeline(documentSnapshot.data());
+//             t.createPost(post => {
+//                 const div = document.createElement('div');
+//                 div.innerHTML = post.outerHTML;
+//                 userPosts.appendChild(div);
+//             });
+
+
+//         });
+//         loader.style.display = 'none';
+
+//     });

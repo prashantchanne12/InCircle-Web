@@ -3,6 +3,8 @@ const user_result = document.querySelector('#result');
 const loader = document.querySelector('.chat-loader');
 const no_chat = document.querySelector('#no-chat');
 const search_input = document.querySelector('#user');
+const user = JSON.parse(localStorage.getItem('currentUser'));
+
 let count;
 let count_2;
 
@@ -14,14 +16,16 @@ search_input.addEventListener('keyup', e => {
         no_chat.style.display = 'none';
         loader.style.display = 'block';
         db.collection('users')
-            .where('username', '<=', search_input.value)
+            .where('displayName', '<=', search_input.value)
             .get()
             .then(querySnapshot => {
                 user_result.innerHTML = '';
                 querySnapshot.forEach(document => {
-                    if (count_2 <= 5) {
-                        addUser(document.data(), document.id);
-                        count_2++;
+                    if (count_2 <= 10) {
+                        if (document.id !== user.id) {
+                            addUser(document.data(), document.id);
+                            count_2++;
+                        }
                     }
                 });
                 loader.style.display = 'none';
@@ -44,7 +48,7 @@ form.addEventListener('submit', e => {
     const query = form.user.value.trim();
     loader.style.display = 'block';
     db.collection('users')
-        .where('username', '<=', query)
+        .where('displayName', '<=', query)
         .get()
         .then(querySnapshot => {
             querySnapshot.forEach(document => {

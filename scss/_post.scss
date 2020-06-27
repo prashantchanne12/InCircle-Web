@@ -2,7 +2,10 @@
   margin: 0 auto;
   max-width: 600px;
   position: relative;
+  margin-top: 1rem;
   padding-bottom: 1rem;
+  border: 1px solid rgba(221, 221, 221, 0.5);
+  border-radius: 0.55rem;
 
   .post-loader {
     img {
@@ -10,7 +13,7 @@
       height: 50px;
       width: 50px;
       position: absolute;
-      top: 45%;
+      top: 40%;
       left: 45%;
     }
   }
@@ -19,6 +22,7 @@
     display: flex;
     align-items: center;
     padding-bottom: 0.55rem;
+    padding-left: 0.55rem;
     padding-top: 0.55rem;
     img {
       margin-left: 5px;
@@ -64,6 +68,8 @@
   }
 
   .user-post-footer {
+    padding-left: 0.55rem;
+
     .icons {
       i {
         &:first-child {
