@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InCircle | Profile</title>
+    <title>InCircle | Activity</title>
     <script src="https://kit.fontawesome.com/7f1e1a2168.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -17,61 +17,43 @@
             <h2>InCircle</h2>
             <ul>
                 <li><a href="./home.html"><i class="fas fa-home"></i></a></li>
-                <li><a href="./chat.html"><i class="fas fa-comment-alt"></i></a></li>
+                <li><a href="./chat.html"><i class="fas fa-comment-alt "></i></a></li>
                 <li><a href="./upload.html"><i class="fas fa-plus-square"></i></a></li>
-                <li><a href="./activity.html"><i class="fas fa-heart"></i></a></li>
-                <li><a href="./profile.html"><i class="fas fa-user-circle current"></i></a></li>
+                <li><a href="./activity.html"><i class="fas fa-heart current"></i></a></li>
+                <li><a href="./profile.html"><i class="fas fa-user-circle"></i></a></li>
             </ul>
         </section>
 
-        <section id="user-profile">
-            <div class="header card-user-profile">
-                <img src="../images/default_profile.png" alt="" id="profile-image">
+        <section id="activity">
+            <img src="../images/default_profile.png" alt="" class="profile-img">
+            <div class="info">
                 <div class="user-info">
-                    <span id="display-name">Display name</span>
-                    <span id="username">Username</span>
-                    <button class="btn btn-light">Edit Profile</button>
+                    <span id="username">username</span>
+                    <span id="detail">Liked your post</span>
+                    <span id="timestamp">a month ago</span>
+                </div>
+                <div class="info-image">
+                    <img src="../images/samples/movie.jpg" alt="">
                 </div>
             </div>
-            <div class="counts">
-                <span id="post-count">⏳</span>
-                <span id="followers-count">⏳</span>
-                <span id="following-count">⏳</span>
-            </div>
-            <div class="counts-text">
-                <span id="post">Posts</span>
-                <span>Followers</span>
-                <span>Following</span>
-            </div>
-
-            <div class="icons">
-                <i class="fas fa-border-all fa-lg current"></i>
-                <i class="fas fa-list fa-lg"></i>
-            </div>
-            <div class="loader-2">
-                <img src="../images/loader_2.gif" alt="">
-            </div>
-
-            <div class="no-posts">
-                <img src="../svg/notPost.svg" alt="">
-                <h2>No Posts</h2>
-            </div>
-
-            <div class="user-posts">
-            </div>
-
-
         </section>
-
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
 
     <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-app.js"></script>
 
     <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-firestore.js"></script>
 
     <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-auth.js"></script>
-
-    <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-storage.js"></script>
 
     <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-analytics.js"></script>
 
@@ -93,7 +75,7 @@
         var db = firebase.firestore();
 
     </script>
-    <script src="../scripts/profile.js"></script>
+    <script src="../scripts/activity.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,43 @@
+#activity {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+
+  .profile-img {
+    margin-left: 1rem;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+  }
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+    .user-info {
+      margin-left: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      #username {
+        font-weight: 600;
+      }
+      #detail {
+        font-size: 0.9rem;
+        color: #333;
+      }
+      #timestamp {
+        font-size: 0.75rem;
+        color: #aaa;
+      }
+    }
+
+    .info-image {
+      margin-left: 15rem;
+      img {
+        height: 60px;
+        width: 60px;
+        border-radius: 0.5rem;
+      }
+    }
+  }
+}
