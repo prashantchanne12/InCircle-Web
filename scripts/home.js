@@ -21,7 +21,25 @@ userPosts.addEventListener('click', e => {
         localStorage.setItem('currentPost', pid);
         window.location = '../screens/comments.html';
     }
+
+    if (e.target.classList.contains('profileImg')) {
+        user_id = e.target.parentElement.nextElementSibling.nextElementSibling.firstElementChild.firstElementChild.getAttribute('uid');
+
+        getProfile(user_id);
+
+    }
+
+    if (e.target.classList.contains('username')) {
+        user_id = e.target.parentElement.parentElement.nextElementSibling.nextElementSibling.firstElementChild.firstElementChild.getAttribute('uid');
+
+        getProfile(user_id);
+    }
 });
+
+function getProfile(user_id) {
+    localStorage.setItem('current_profile', user_id);
+    window.location = '../screens/user_profile.html';
+}
 
 userPosts.addEventListener('dblclick', e => {
     if (e.target.parentElement.classList.contains('post-image')) {

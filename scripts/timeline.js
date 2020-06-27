@@ -71,16 +71,16 @@ class Timeline {
                 const post = document.createElement('section');
                 post.id = 'user-post';
                 post.innerHTML = `
-    <div class="user-post-header">
-            <img src="${photoUrl}" alt="">
+        <div class="user-post-header">
+            <img src="${photoUrl}" alt="" class="profileImg">
             <div class="data-info">
-                <span id="user-name">${this.data.username}</span>
+                <span id="user-name" class="username">${this.data.username}</span>
                 <span id="location">${this.data.location}</span>
             </div>
         </div>
         <div class="post-image">
             <img src="${this.data.mediaUrl}" alt="" style="width: 100%;">
-            <img src="../images/heart.png" alt="" class="heart" pid="${this.data.postId}">
+            <img src="../images/heart.png" alt="" class="heart"">
         </div>
         <div class="user-post-footer">
             <div class="icons">
