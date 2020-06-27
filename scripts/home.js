@@ -18,7 +18,9 @@ userPosts.addEventListener('click', e => {
     if (e.target.classList.contains('fa-comment-alt')) {
         // HANDLE COMMENTS
         const pid = e.target.previousElementSibling.getAttribute('pid');
+        const uid = e.target.previousElementSibling.getAttribute('uid');
         localStorage.setItem('currentPost', pid);
+        localStorage.setItem('currentPostUserId', uid);
         window.location = '../screens/comments.html';
     }
 
@@ -182,7 +184,7 @@ function unlikePost(uid, pid) {
         }
         ).then(() => {
             console.log('post unliked');
-            // ADD NOTIFICATION TO USERS FEED
+            // REMOVE NOTIFICATION FROM USERS FEED
             db.collection('feed')
                 .doc(uid)
                 .collection('feedItems')

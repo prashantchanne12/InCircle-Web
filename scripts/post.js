@@ -118,6 +118,21 @@ function handlLikes() {
         unlikePost();
 
         likeBtn.style = 'font-weight: 0;';
+
+
+        // REMOVE NOTIFICATION FROM USERS FEED
+        db.collection('feed')
+            .doc(userId)
+            .collection('feedItems')
+            .where('postId', '==', currentPost)
+            .get()
+            .then(querySnapshot => {
+                querySnapshot.forEach(documentSnapshot => {
+                    documentSnapshot.ref.delete();
+                });
+                console.log('feed deleted');
+            });
+
     } else {
         // LiKE POST
         likePost();
@@ -205,5 +220,6 @@ function updateLikes() {
 
 // HANDLE COMMENTS
 commentBtn.addEventListener('click', e => {
+    localStorage.setItem('currentPostUserId', userId);
     window.location = '../screens/comments.html';
 });

@@ -4,6 +4,7 @@ const timeStamp = document.querySelector('#timestamp');
 const comment = document.querySelector('#comment-text');
 const form = document.querySelector('form');
 const currentPost = localStorage.getItem('currentPost');
+const currentPostUserId = localStorage.getItem('currentPostUserId');
 const commentSection = document.querySelector('#comments');
 const user = JSON.parse(localStorage.getItem('currentUser'));
 const loader = document.querySelector('.loader-2');
@@ -17,6 +18,7 @@ function loadComments() {
     db.collection('comments')
         .doc(currentPost)
         .collection('comments')
+        .orderBy('timestamp', 'desc')
         .onSnapshot(snapshot => {
             snapshot.docChanges().forEach(change => {
                 const doc = change.doc;
@@ -71,24 +73,35 @@ function submitComment(comment) {
             consolo.log('Error: ', e);
         });
 
-    // ADD NOTIFICATION TO USERS FEED
-    // db.collection('feed')
-    //     .doc(userId)
-    //     .collection('feedItems')
-    //     .add({
-    //         isSeen: false,
-    //         ownerId: userId,
-    //         timestamp: firebase.firestore.Timestamp.fromDate(new Date()),
-    //         type: 'like',
-    //         mediaUrl: mediaUrl,
-    //         userId: user.id,
-    //         userProfileImage: user.photoUrl,
-    //         username: user.username,
-    //     }).then(() => {
-    //         console.log('Added Feed!');
-    //     }).catch(e => {
-    //         console.log('Error', e);
-    //     });
+    db.collection('posts')
+        .doc(currentPostUserId)
+        .collection('userPosts')
+        .doc(currentPost)
+        .get()
+        .then(documentSnapshot => {
+            // ADD NOTIFICATION TO USERS FEED
+            db.collection('feed')
+                .doc(currentPostUserId)
+                .collection('feedItems')
+                .add({
+                    isSeen: false,
+                    ownerId: currentPostUserId,
+                    timestamp: firebase.firestore.Timestamp.fromDate(new Date()),
+                    type: 'comment',
+                    mediaUrl: documentSnapshot.data().mediaUrl,
+                    commentData: comment,
+                    userId: user.id,
+                    postId: currentPost,
+                    userProfileImage: user.photoUrl,
+                    username: user.username,
+                }).then(() => {
+                    console.log('Added Feed!');
+                }).catch(e => {
+                    console.log('Error', e);
+                });
+        });
+
+
 }
 
 
@@ -96,4 +109,5 @@ form.addEventListener('submit', e => {
     e.preventDefault();
     const commentText = form.comment.value.trim();
     submitComment(commentText);
+    form.reset();
 });
