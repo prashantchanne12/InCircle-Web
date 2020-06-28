@@ -234,6 +234,9 @@ form .btn-center button {
   align-items: center;
   font-weight: bold;
   font-size: 1.1rem; }
+  #user-profile .counts #followers-count,
+  #user-profile .counts #following-count {
+    cursor: pointer; }
 
 #user-profile .counts-text {
   padding-top: 2px;
@@ -341,6 +344,11 @@ form .btn-center button {
 
 #no-chat h2 {
   text-align: center; }
+
+.buttons .btn-row {
+  display: flex; }
+  .buttons .btn-row .btn-msg {
+    margin-left: 0.55rem; }
 
 .buttons button {
   border: 0;
@@ -504,3 +512,47 @@ form .btn-center button {
   position: absolute;
   top: 50%;
   left: 45%; }
+
+#chat {
+  max-width: 700px;
+  margin: 0 auto; }
+  #chat #chat-msg-list {
+    grid-area: chat-msg-list;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.2rem; }
+    #chat #chat-msg-list .msg-row {
+      margin-bottom: 1.2rem;
+      display: grid;
+      grid-template-columns: 70%;
+      margin-bottom: 1.2rem; }
+      #chat #chat-msg-list .msg-row .msg-text {
+        padding: 9px 14px;
+        font-size: 1rem;
+        margin-bottom: 5px; }
+      #chat #chat-msg-list .msg-row .msg-time {
+        font-size: 0.75rem;
+        color: #777; }
+    #chat #chat-msg-list .you-msg {
+      justify-content: end;
+      justify-items: end; }
+      #chat #chat-msg-list .you-msg .msg-text {
+        background: #0984e3;
+        color: #eee;
+        border: 1px solid #0984e3;
+        border-radius: 0.75rem 0.75rem 0 0.75rem; }
+    #chat #chat-msg-list .other-msg {
+      justify-items: start; }
+      #chat #chat-msg-list .other-msg .msg-text {
+        background: #eee;
+        color: #111;
+        border: 1px solid #ddd;
+        border-radius: 0.75rem 0.75rem 0.75rem 0; }
+  #chat .chat-input {
+    max-width: 700px;
+    position: fixed;
+    bottom: 0;
+    z-index: 1; }
+    #chat .chat-input input[type="text"] {
+      padding-bottom: 0;
+      margin-bottom: 0; }

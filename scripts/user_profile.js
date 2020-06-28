@@ -8,6 +8,7 @@ const loader = document.querySelector('.loader-2');
 const userId = localStorage.getItem('current_profile');
 const followBtn = document.querySelector('.btn-follow');
 const unfollowBtn = document.querySelector('.btn-unfollow');
+const msgBtn = document.querySelector('.btn-msg');
 const postCount = document.querySelector('#post-count');
 const followersCount = document.querySelector('#followers-count');
 const followingCount = document.querySelector('#following-count');
@@ -132,9 +133,11 @@ function checkFollowing() {
             if (snapshot.exists) {
                 unfollowBtn.style.display = 'block';
                 followBtn.style.display = 'none';
+                msgBtn.style.display = 'block';
             } else {
                 followBtn.style.display = 'block';
                 unfollowBtn.style.display = 'none';
+                msgBtn.style.display = 'none';
             }
         });
 }
@@ -238,4 +241,8 @@ userPosts.addEventListener('click', e => {
         localStorage.setItem('currentPost', postId);
         window.location = '../screens/post.html';
     }
+});
+
+msgBtn.addEventListener('click', e => {
+    window.location = '../screens/chat_screen.html';
 });

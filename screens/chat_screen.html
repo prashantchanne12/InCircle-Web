@@ -16,50 +16,27 @@
         <section id="navbar">
             <h2>InCircle</h2>
         </section>
-        <section id="user-profile" style="padding-top: 1rem;">
-            <div class="header card-user-profile">
-                <img src="../images/default_profile.png" alt="" id="profile-image">
-                <div class="user-info user-profile">
-                    <span id="display-name">Display name</span>
-                    <span id="username">Username</span>
-                    <div class="buttons">
-                        <button class="btn btn-primary btn-follow">Follow</button>
-                       <div class="btn-row">
-                        <button class="btn btn-light btn-unfollow">Unfollow</button>
-                        <button class="btn btn-primary btn-msg">Message</button>
-                       </div>
-                    </div>
 
+        <section id="chat">
+            <div id="chat-msg-list">
+                <div class="msg-row you-msg">
+                    <div class="msg-text">Hello</div>
+                    <div class="msg-time">3:16</div>
+                </div>
+                <div class="msg-row other-msg">
+                    <div class="msg-text">Hi</div>
+                    <div class="msg-time">3:17</div>
                 </div>
             </div>
-            <div class="counts">
-                <span id="post-count">⏳</span>
-                <span id="followers-count">⏳</span>
-                <span id="following-count">⏳</span>
-            </div>
-            <div class="counts-text">
-                <span id="post">Posts</span>
-                <span>Followers</span>
-                <span>Following</span>
-            </div>
 
-            <div class="icons">
-                <i class="fas fa-border-all fa-lg current"></i>
-                <i class="fas fa-list fa-lg"></i>
-            </div>
-            <div class="loader-2">
-                <img src="../images/loader_2.gif" alt="">
-            </div>
-
-            <div class="no-posts">
-                <img src="../svg/notPost.svg" alt="">
-                <h2>No Posts</h2>
-            </div>
-
-            <div class="user-posts">
-            </div>
-
-
+            <form>
+                <div class="input-group mb-3 chat-input">
+                    <input type="text" class="form-control" placeholder="Type a message" />
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit">Send</button>
+                    </div>
+                </div>
+            </form>
         </section>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -98,7 +75,7 @@
             var db = firebase.firestore();
 
         </script>
-        <script src="../scripts/user_profile.js"></script>
+        <script src="../scripts/chat_screen.js"></script>
 </body>
 
 </html>

@@ -1,4 +1,11 @@
 .buttons {
+  .btn-row {
+    display: flex;
+    .btn-msg {
+      margin-left: 0.55rem;
+    }
+  }
+
   button {
     border: 0;
     padding: 0.5rem 2rem;
