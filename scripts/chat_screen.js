@@ -11,13 +11,6 @@ let receiver = false;
 let getData = undefined;
 let data = undefined;
 
-if (!localStorage.getItem('alert')) {
-    alert.style.display = 'block';
-    setTimeout(() => {
-        alert.style.display = 'none';
-        localStorage.setItem('alert', true);
-    }, 5000);
-}
 
 loader.style.display = 'block';
 
@@ -38,6 +31,15 @@ getReciverDetails();
 
 // GET CHATS
 getChats();
+
+if (!localStorage.getItem('alert')) {
+    alert.style.display = 'block';
+    setTimeout(() => {
+        alert.style.display = 'none';
+        localStorage.setItem('alert', true);
+    }, 5000);
+}
+
 
 form.addEventListener('submit', e => {
     e.preventDefault();
