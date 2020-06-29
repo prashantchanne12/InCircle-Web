@@ -545,6 +545,17 @@ form .btn-center button {
   top: 50%;
   left: 45%; }
 
+.no-activity {
+  display: none;
+  padding-top: 3rem; }
+  .no-activity img {
+    display: block;
+    margin: 0 auto;
+    width: 400px;
+    height: 400px; }
+  .no-activity h2 {
+    text-align: center; }
+
 #chat {
   max-width: 700px;
   margin: 0 auto; }

@@ -1,6 +1,9 @@
 const user = JSON.parse(localStorage.getItem('currentUser'));
 const activity = document.querySelector('#activity-posts');
 const activity_loader = document.querySelector('.activity-loader>img');
+const no_activity = document.querySelector('.no-activity');
+
+let count = 0;
 
 activity_loader.style.display = 'block';
 
@@ -12,9 +15,13 @@ db.collection('feed')
     .then(querySnapshot => {
 
         querySnapshot.forEach(documentSnapshot => {
+            count++;
             addActivity(documentSnapshot.data());
         });
         activity_loader.style.display = 'none';
+        if (count == 0) {
+            no_activity.style.display = 'block';
+        }
 
     }).catch(e => {
         console.log('Error', e);
