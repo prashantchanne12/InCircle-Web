@@ -163,9 +163,11 @@ function getChats() {
                     addMessageBubble(doc.data(), doc.id);
 
                     updateToSeen(doc.id);
+
                 }
                 if (change.type === 'modified') {
                     changeToSeen(doc.id);
+                    deleteMsg(doc.id);
                 }
 
                 if (change.type === 'removed') {
@@ -216,6 +218,21 @@ function removeMsg(id) {
             element.remove();
         }
     });
+}
+
+function deleteMsg(id) {
+    db.collection('messages')
+        .doc(chatId)
+        .collection('chats')
+        .doc(id)
+        .get()
+        .then(document => {
+            if (document.data().isSeen === true) {
+                setTimeout(() => {
+                    document.ref.delete();
+                }, 15000);
+            }
+        });
 }
 
 function updateToSeen(id) {
