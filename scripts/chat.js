@@ -26,6 +26,7 @@ getChatTiles(counts => {
 });
 
 search_input.addEventListener('keyup', e => {
+    no_chat.style.display = 'none';
 
     if (search_input.value.trim()) {
         count_2 = 0;
@@ -47,13 +48,17 @@ search_input.addEventListener('keyup', e => {
                     }
                 });
                 loader.style.display = 'none';
+                if (count_2 > 0) {
+                    no_chat.style.display = 'none';
+                } else {
+                    no_chat.style.display = 'block';
+                }
             }).catch(e => {
                 loader.style.display = 'none';
                 console.log('Error ', e);
             });
     } else {
         user_result.innerHTML = '';
-        no_chat.style.display = 'block';
         chats.style.display = 'block';
 
     }
@@ -68,7 +73,6 @@ form.addEventListener('submit', e => {
     count = 0;
 
     const query = form.user.value.trim();
-    loader.style.display = 'block';
     db.collection('users')
         .where('displayName', '<=', query)
         .get()
@@ -80,6 +84,7 @@ form.addEventListener('submit', e => {
                 }
             });
             loader.style.display = 'none';
+
         }).catch(e => {
             loader.style.display = 'none';
             console.log('Error ', e);

@@ -3,11 +3,14 @@ const user = JSON.parse(localStorage.getItem('currentUser'));
 const receiverId = localStorage.getItem('current_profile');
 const senderId = user.id;
 const chatList = document.querySelector('#chat-msg-list');
+const loader = document.querySelector('.chat-screen-loader');
 let chatId = '';
 let sender = false;
 let receiver = false;
 let getData = undefined;
 let data = undefined;
+
+loader.style.display = 'block';
 
 // CHECK IF CHAT TILES EXISTS
 checkIfSenderExisted(issender => {
@@ -169,6 +172,8 @@ function getChats() {
                     removeMsg(doc.id);
                 }
             });
+            loader.style.display = 'none';
+
         });
 }
 

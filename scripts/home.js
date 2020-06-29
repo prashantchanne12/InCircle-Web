@@ -3,7 +3,8 @@ const userPosts = document.querySelector('#user-posts');
 const currentUserId = user.id;
 let isLiked;
 const loader = document.querySelector('#user-posts>img');
-
+const no_posts = document.querySelector('.no-posts');
+let count = 0;
 
 loader.style.display = 'block';
 
@@ -224,6 +225,7 @@ db.collection('timeline')
     .get()
     .then(querySnapshot => {
         querySnapshot.forEach(documentSnapshot => {
+            count++;
             const t = new Timeline(documentSnapshot.data());
             t.createPost(post => {
                 const div = document.createElement('div');
@@ -234,5 +236,9 @@ db.collection('timeline')
 
         });
         loader.style.display = 'none';
-
+        if (count === 0) {
+            no_posts.style.display = 'block';
+        } else {
+            no_posts.style.display = 'none';
+        }
     });

@@ -1,6 +1,7 @@
 #chat {
   max-width: 700px;
   margin: 0 auto;
+  padding-top: 1.5rem;
   #chat-msg-list {
     grid-area: chat-msg-list;
     display: flex;
@@ -58,5 +59,16 @@
       padding-bottom: 0;
       margin-bottom: 0;
     }
+  }
+}
+
+.chat-screen-loader {
+  display: none;
+  margin-top: 5rem;
+  img {
+    height: 50px;
+    width: 50px;
+    display: block;
+    margin: 0 auto;
   }
 }

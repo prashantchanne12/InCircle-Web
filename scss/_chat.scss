@@ -87,12 +87,13 @@
 
 #chats {
   .chat-tiles {
+    cursor: pointer;
+
     display: flex;
     padding-top: 1rem;
     padding-bottom: 0.55rem;
     border-bottom: 1px solid #eee;
     img {
-      cursor: pointer;
       height: 60px;
       width: 60px;
       border-radius: 50%;
@@ -106,7 +107,6 @@
       align-self: center;
 
       #user-name {
-        cursor: pointer;
         font-weight: 600;
         padding-bottom: 1px;
       }

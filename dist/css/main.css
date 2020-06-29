@@ -146,6 +146,17 @@ input[type="text"] {
         #navbar ul li a .current {
           color: #0984e3; }
 
+.no-posts {
+  display: none;
+  padding-top: 3rem; }
+  .no-posts img {
+    display: block;
+    margin: 0 auto;
+    width: 400px;
+    height: 400px; }
+  .no-posts h2 {
+    text-align: center; }
+
 .card-upload {
   background-color: #fff;
   box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.1);
@@ -354,12 +365,12 @@ form .btn-center button {
   text-align: center; }
 
 #chats .chat-tiles {
+  cursor: pointer;
   display: flex;
   padding-top: 1rem;
   padding-bottom: 0.55rem;
   border-bottom: 1px solid #eee; }
   #chats .chat-tiles img {
-    cursor: pointer;
     height: 60px;
     width: 60px;
     border-radius: 50%; }
@@ -370,7 +381,6 @@ form .btn-center button {
     justify-content: flex-start;
     align-self: center; }
     #chats .chat-tiles .user-info #user-name {
-      cursor: pointer;
       font-weight: 600;
       padding-bottom: 1px; }
     #chats .chat-tiles .user-info #message-count {
@@ -558,7 +568,8 @@ form .btn-center button {
 
 #chat {
   max-width: 700px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding-top: 1.5rem; }
   #chat #chat-msg-list {
     grid-area: chat-msg-list;
     display: flex;
@@ -600,3 +611,12 @@ form .btn-center button {
     #chat .chat-input input[type="text"] {
       padding-bottom: 0;
       margin-bottom: 0; }
+
+.chat-screen-loader {
+  display: none;
+  margin-top: 5rem; }
+  .chat-screen-loader img {
+    height: 50px;
+    width: 50px;
+    display: block;
+    margin: 0 auto; }

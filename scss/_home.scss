@@ -30,3 +30,17 @@
     }
   }
 }
+
+.no-posts {
+  display: none;
+  padding-top: 3rem;
+  img {
+    display: block;
+    margin: 0 auto;
+    width: 400px;
+    height: 400px;
+  }
+  h2 {
+    text-align: center;
+  }
+}
