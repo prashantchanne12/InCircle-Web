@@ -2,15 +2,28 @@ const form = document.querySelector('form');
 const user_result = document.querySelector('#result');
 const loader = document.querySelector('.chat-loader');
 const no_chat = document.querySelector('#no-chat');
+const screen_loader = document.querySelector('.screen-loader');
 const search_input = document.querySelector('#user');
 const user = JSON.parse(localStorage.getItem('currentUser'));
 const chats = document.querySelector('#chats');
 let count;
 let count_2;
+let tile_counts = 0;
 
 no_chat.style.display = 'none';
+screen_loader.style.display = 'block';
 
-getChatTiles();
+getChatTiles(counts => {
+    if (counts > 0) {
+        no_chat.style.display = 'none';
+        screen_loader.style.display = 'none';
+
+    } else {
+        no_chat.style.display = 'block';
+        screen_loader.style.display = 'none';
+
+    }
+});
 
 search_input.addEventListener('keyup', e => {
 
@@ -45,6 +58,8 @@ search_input.addEventListener('keyup', e => {
 
     }
 });
+
+
 
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -101,15 +116,17 @@ user_result.addEventListener('click', e => {
 });
 
 
-function getChatTiles() {
+function getChatTiles(callback) {
     db.collection('chat_tiles')
         .doc(user.id)
         .collection('chat_users')
         .get()
         .then(querySnapshot => {
             querySnapshot.forEach(document => {
+                tile_counts++;
                 addChatTiles(document.data());
             });
+            callback(tile_counts);
         }).catch(e => {
             console.log('Error: ', e);
         });
