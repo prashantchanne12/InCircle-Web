@@ -4,11 +4,20 @@ const receiverId = localStorage.getItem('current_profile');
 const senderId = user.id;
 const chatList = document.querySelector('#chat-msg-list');
 const loader = document.querySelector('.chat-screen-loader');
+const alert = document.querySelector('.alert');
 let chatId = '';
 let sender = false;
 let receiver = false;
 let getData = undefined;
 let data = undefined;
+
+if (!localStorage.getItem('alert')) {
+    alert.style.display = 'block';
+    setTimeout(() => {
+        alert.style.display = 'none';
+        localStorage.setItem('alert', true);
+    }, 5000);
+}
 
 loader.style.display = 'block';
 
