@@ -2,6 +2,7 @@ const form = document.querySelector('form');
 const user = JSON.parse(localStorage.getItem('currentUser'));
 const receiverId = localStorage.getItem('current_profile');
 const senderId = user.id;
+const chatList = document.querySelector('#chat-msg-list');
 let chatId = '';
 let sender = false;
 let receiver = false;
@@ -22,6 +23,9 @@ getChatId();
 
 // GET RECIEVRS DETAILS
 getReciverDetails();
+
+// GET CHATS
+getChats();
 
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -142,4 +146,95 @@ function getReciverDetails() {
         }).catch(e => {
             console.log('Error: ', e);
         });
+}
+
+function getChats() {
+    db.collection('messages')
+        .doc(chatId)
+        .collection('chats')
+        .orderBy('time', 'desc')
+        .onSnapshot(onSnapshot => {
+            onSnapshot.docChanges().forEach(change => {
+                const doc = change.doc;
+                if (change.type === 'added') {
+                    addMessageBubble(doc.data(), doc.id);
+
+                    updateToSeen(doc.id);
+                }
+                if (change.type === 'modified') {
+                    changeToSeen(doc.id);
+                }
+
+                if (change.type === 'removed') {
+                    removeMsg(doc.id);
+                }
+            });
+        });
+}
+
+function addMessageBubble(data, id) {
+    const isMe = senderId === data.userId;
+    const isSeen = data.isSeen;
+    const div = document.createElement('div');
+    div.classList.add('msg-row');
+    div.classList.add(isMe ? 'you-msg' : 'other-msg');
+
+    const html = `
+    <div class="msg-text" doc="${id}">${data.text}</div>
+    ${isMe ? `<i class="fas fa-check-circle ${isSeen ? "read" : "unread"} "></i>` : ""}
+    `;
+
+    div.innerHTML = html;
+
+    chatList.appendChild(div);
+
+}
+
+function changeToSeen(id) {
+    document.querySelectorAll('.unread').forEach(element => {
+        if (element.previousElementSibling.getAttribute('doc') === id) {
+            element.classList.remove('unread');
+            element.classList.add('read');
+        }
+    });
+}
+
+function removeMsg(id) {
+    document.querySelectorAll('.read').forEach(element => {
+        if (element.previousElementSibling.getAttribute('doc') === id) {
+            element.parentElement.remove();
+        }
+    });
+
+    document.querySelectorAll('.other-msg').forEach(element => {
+        if (element.firstElementChild.getAttribute('doc') === id) {
+            element.remove();
+        }
+    });
+}
+
+function updateToSeen(id) {
+    db.collection('messages')
+        .doc(chatId)
+        .collection('chats')
+        .doc(id)
+        .get()
+        .then(document => {
+            if (document.data().receiverId === senderId) {
+                db.collection('messages')
+                    .doc(chatId)
+                    .collection('chats')
+                    .doc(document.id)
+                    .update({
+                        isSeen: true,
+                    }).then(() => {
+                        console.log('udpated');
+                    }).catch(e => {
+                        console.log('Error: ', e);
+                    });
+            }
+        }).catch(e => {
+            console.log('Error: ', e);
+        });
+
 }

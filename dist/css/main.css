@@ -345,6 +345,30 @@ form .btn-center button {
 #no-chat h2 {
   text-align: center; }
 
+#chats .chat-tiles {
+  display: flex;
+  padding-top: 1rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid #eee; }
+  #chats .chat-tiles img {
+    cursor: pointer;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%; }
+  #chats .chat-tiles .user-info {
+    padding-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-self: center; }
+    #chats .chat-tiles .user-info #user-name {
+      cursor: pointer;
+      font-weight: 600;
+      padding-bottom: 1px; }
+    #chats .chat-tiles .user-info #message-count {
+      font-size: 0.75rem;
+      color: grey; }
+
 .buttons .btn-row {
   display: flex; }
   .buttons .btn-row .btn-msg {
@@ -530,9 +554,10 @@ form .btn-center button {
         padding: 9px 14px;
         font-size: 1rem;
         margin-bottom: 5px; }
-      #chat #chat-msg-list .msg-row .msg-time {
-        font-size: 0.75rem;
-        color: #777; }
+      #chat #chat-msg-list .msg-row .unread {
+        color: #ccc; }
+      #chat #chat-msg-list .msg-row .read {
+        color: #00b894; }
     #chat #chat-msg-list .you-msg {
       justify-content: end;
       justify-items: end; }

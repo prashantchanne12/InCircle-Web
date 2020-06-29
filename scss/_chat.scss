@@ -74,3 +74,37 @@
     text-align: center;
   }
 }
+
+#chats {
+  .chat-tiles {
+    display: flex;
+    padding-top: 1rem;
+    padding-bottom: 0.55rem;
+    border-bottom: 1px solid #eee;
+    img {
+      cursor: pointer;
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+    }
+
+    .user-info {
+      padding-left: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-self: center;
+
+      #user-name {
+        cursor: pointer;
+        font-weight: 600;
+        padding-bottom: 1px;
+      }
+
+      #message-count {
+        font-size: 0.75rem;
+        color: grey;
+      }
+    }
+  }
+}

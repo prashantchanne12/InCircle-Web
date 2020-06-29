@@ -4,9 +4,13 @@ const loader = document.querySelector('.chat-loader');
 const no_chat = document.querySelector('#no-chat');
 const search_input = document.querySelector('#user');
 const user = JSON.parse(localStorage.getItem('currentUser'));
-
+const chats = document.querySelector('#chats');
 let count;
 let count_2;
+
+no_chat.style.display = 'none';
+
+getChatTiles();
 
 search_input.addEventListener('keyup', e => {
 
@@ -14,6 +18,7 @@ search_input.addEventListener('keyup', e => {
         count_2 = 0;
         user_result.innerHTML = '';
         no_chat.style.display = 'none';
+        chats.style.display = 'none';
         loader.style.display = 'block';
         db.collection('users')
             .where('displayName', '<=', search_input.value)
@@ -36,6 +41,8 @@ search_input.addEventListener('keyup', e => {
     } else {
         user_result.innerHTML = '';
         no_chat.style.display = 'block';
+        chats.style.display = 'block';
+
     }
 });
 
@@ -92,4 +99,62 @@ user_result.addEventListener('click', e => {
         window.location = '../screens/user_profile.html';
     }
 });
+
+
+function getChatTiles() {
+    db.collection('chat_tiles')
+        .doc(user.id)
+        .collection('chat_users')
+        .get()
+        .then(querySnapshot => {
+            querySnapshot.forEach(document => {
+                addChatTiles(document.data());
+            });
+        }).catch(e => {
+            console.log('Error: ', e);
+        });
+}
+
+function addChatTiles(data) {
+    const div = document.createElement('div');
+    div.classList.add('chat-tiles')
+    const html = `  
+    <img src="${data.photoUrl}" alt="" id="${data.id}">
+    <div class="user-info">
+        <span id="user-name">${data.username}</span>
+        <span id="message-count">5 new message</span>
+    </div>
+    `;
+    div.innerHTML = html;
+    chats.appendChild(div);
+
+}
+
+chats.addEventListener('click', e => {
+    if (e.target.classList.contains('chat-tiles')) {
+        const id = e.target.firstElementChild.getAttribute('id');
+        localStorage.setItem('current_profile', id);
+        window.location = '../screens/chat_screen.html';
+    }
+
+    if (e.target.id === 'message-count') {
+        const id = e.target.parentElement.previousElementSibling.getAttribute('id');
+        localStorage.setItem('current_profile', id);
+        window.location = '../screens/chat_screen.html';
+
+    }
+
+    if (e.target.id === 'user-name') {
+        const id = e.target.parentElement.previousElementSibling.getAttribute('id');
+        localStorage.setItem('current_profile', id);
+        window.location = '../screens/chat_screen.html';
+    }
+
+    if (e.target.tagName === 'IMG') {
+        const id = e.target.getAttribute('id');
+        localStorage.setItem('current_profile', id);
+        window.location = '../screens/chat_screen.html';
+    }
+});
+
 
