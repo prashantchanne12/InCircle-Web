@@ -88,6 +88,26 @@
     }
   }
 
+  #result {
+    #user-result {
+      .search-user-info {
+        #display-name {
+          font-size: 1rem;
+        }
+        #user-name {
+          font-size: 0.9rem;
+        }
+        button {
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    #user-result:last-child {
+      padding-bottom: 5rem;
+    }
+  }
+
   .no-posts {
     img {
       width: 100%;
