@@ -5,6 +5,7 @@ const userPosts = document.querySelector('.user-posts');
 const user = JSON.parse(localStorage.getItem('currentUser'));
 const noPost = document.querySelector('.no-posts');
 const loader = document.querySelector('.loader-2');
+const edit_profile = document.querySelector('.btn');
 
 const postCount = document.querySelector('#post-count');
 const followersCount = document.querySelector('#followers-count');
@@ -126,3 +127,7 @@ function countPosts() {
             console.log(err);
         });
 }
+
+edit_profile.addEventListener('click', e => {
+    window.location = '../screens/edit_profile.html';
+});

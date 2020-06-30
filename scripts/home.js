@@ -8,6 +8,12 @@ let count = 0;
 
 loader.style.display = 'block';
 
+firebase.auth().onAuthStateChanged(user => {
+    console.log(user);
+});
+
+
+
 userPosts.addEventListener('click', e => {
     if (e.target.classList.contains('fa-heart')) {
         // HANDLE LIKES 

@@ -10,13 +10,8 @@
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="../dist/css/main.css">
     <style>
-        #user-posts>img {
-            display: none;
-            position: absolute;
-            top: 50%;
-            left: 45%;
-            height: 60px;
-            width: 60px;
+        #edit-profile {
+            padding: 2rem;
         }
     </style>
 </head>
@@ -25,30 +20,33 @@
     <div class="container">
         <section id="navbar">
             <h2>InCircle</h2>
-            <ul>
-                <li><a href="./home.html"><i class="fas fa-home current"></i></a></li>
-                <li><a href="./chat.html"><i class="fas fa-comment-alt"></i></a></li>
-                <li><a href="./upload.html"><i class="fas fa-plus-square"></i></a></li>
-                <li><a href="./activity.html"><i class="fas fa-heart"></i></a></li>
-                <li><a href="./profile.html"><i class="fas fa-user-circle"></i></a></li>
-            </ul>
         </section>
-        <div class="no-posts">
-            <img src="../svg/notPost.svg" alt="">
-            <h2>No Posts</h2>
-        </div>
-        <section id="user-posts">
-            <img src="../images/loader.gif" alt="" class="home-loader">
-        </section>
+        <section id="edit-profile">
+            <div class="alert alert-success" role="alert">
+                Updated Successfully!
+            </div>
+            <form class="form-group profile">
+                <img src="" alt="" class="profile-img">
+                <input type="file" id="img" name="img">
+                <div class="form-group">
+                    <label for="username" class="user-text">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Username"
+                        disabled>
+                </div>
 
-        <section id="bottom-nav">
-            <ul>
-                <li><a href="./home.html"><i class="fas fa-home current"></i></a></li>
-                <li><a href="./chat.html"><i class="fas fa-comment-alt"></i></a></li>
-                <li><a href="./upload.html"><i class="fas fa-plus-square"></i></a></li>
-                <li><a href="./activity.html"><i class="fas fa-heart"></i></a></li>
-                <li><a href="./profile.html"><i class="fas fa-user-circle"></i></a></li>
-            </ul>
+                <div class="form-group">
+                    <label for="displayName" class="display-name-text">Display Name</label>
+                    <input type="text" class="form-control" id="displayName" name="displayName"
+                        placeholder="Display name" required>
+                </div>
+                <div class="submit-button">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+                <div class="loader">
+                    <img src="../images/loader.gif" alt="">
+                </div>
+            </form>
+
         </section>
     </div>
     <script src="http://cdn.date-fns.org/v1.9.0/date_fns.min.js"></script>
@@ -81,10 +79,9 @@
         firebase.analytics();
         var db = firebase.firestore();
 
-      
+
     </script>
-    <script src="../scripts/timeline.js"></script>
-    <script src="../scripts/home.js"></script>
+    <script src="../scripts/edit_profile.js"></script>
 </body>
 
 </html>
