@@ -52,7 +52,7 @@ function createUserInFirestore(userData) {
                 .doc(user.id)
                 .get()
                 .then(document => {
-                    const username = document.data();
+                    const username = document.data().username;
                     if (username.length !== 0) {
                         window.location.replace('./screens/home.html');
                     } else {

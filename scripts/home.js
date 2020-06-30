@@ -8,7 +8,14 @@ let count = 0;
 
 loader.style.display = 'block';
 
-
+db.collection('users')
+    .doc(user.id)
+    .get()
+    .then((document) => {
+        localStorage.setItem('currentUser', JSON.stringify(document.data()));
+    }).catch(e => {
+        console.log('Error: ', e);
+    });
 
 
 
