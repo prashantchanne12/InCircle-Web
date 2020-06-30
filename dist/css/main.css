@@ -161,6 +161,26 @@ input[type="text"] {
   height: 50px;
   width: 50px; }
 
+#bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+  background-color: #fff;
+  width: 100%; }
+  #bottom-nav ul {
+    display: flex;
+    align-self: center;
+    justify-content: space-evenly; }
+    #bottom-nav ul li {
+      padding-top: 1rem;
+      padding-right: 1rem;
+      align-items: center; }
+      #bottom-nav ul li a {
+        color: grey; }
+        #bottom-nav ul li a .current {
+          color: #0984e3; }
+
 .card-upload {
   background-color: #fff;
   box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.1);
@@ -273,6 +293,7 @@ form .btn-center button {
 #user-profile .user-posts {
   padding-top: 2rem;
   display: grid;
+  justify-content: center;
   grid-template-columns: repeat(3, 240px);
   grid-gap: 0.5rem; }
   #user-profile .user-posts img {
@@ -390,7 +411,7 @@ form .btn-center button {
       padding-bottom: 1px; }
     #chats .chat-tiles .user-info #message-count {
       font-size: 0.75rem;
-      color: grey; }
+      color: #0984e3; }
 
 .buttons .btn-row {
   display: flex; }
@@ -518,6 +539,7 @@ form .btn-center button {
     padding-left: 10rem; }
 
 #activity-posts .activity {
+  width: 100%;
   margin-top: 1rem;
   padding-bottom: 1rem;
   display: flex;
@@ -530,6 +552,7 @@ form .btn-center button {
     width: 60px;
     border-radius: 50%; }
   #activity-posts .activity .info {
+    width: 100%;
     display: flex;
     justify-content: space-between; }
     #activity-posts .activity .info .user-info {
@@ -545,12 +568,10 @@ form .btn-center button {
       #activity-posts .activity .info .user-info #timestamp {
         font-size: 0.75rem;
         color: #aaa; }
-    #activity-posts .activity .info .info-image {
-      margin-left: 15rem; }
-      #activity-posts .activity .info .info-image img {
-        height: 60px;
-        width: 60px;
-        border-radius: 0.5rem; }
+    #activity-posts .activity .info .info-image img {
+      height: 60px;
+      width: 60px;
+      border-radius: 0.5rem; }
 
 #activity-posts .activity-loader img {
   display: none;
@@ -628,3 +649,53 @@ form .btn-center button {
 
 .alert {
   display: none; }
+
+@media (max-width: 500px) {
+  #navbar ul {
+    display: none; }
+  #bottom-nav {
+    display: block;
+    overflow-x: auto; }
+  #search-user input {
+    width: 80%; }
+  #upload form > img {
+    width: 100%;
+    height: 200px; }
+  #upload .caption-field {
+    justify-content: flex-start;
+    padding: 0; }
+    #upload .caption-field img {
+      width: 50px;
+      height: 50px; }
+    #upload .caption-field #caption {
+      margin-left: 1.4rem; }
+  #upload .location-field {
+    justify-content: flex-start;
+    padding: 0;
+    padding-top: 1rem; }
+    #upload .location-field i {
+      margin-left: 0.55rem; }
+  #upload button {
+    margin: 0;
+    margin-top: 2rem; }
+  #user-profile .header img {
+    height: 100px;
+    width: 100px; }
+  #user-profile .header .user-info {
+    padding-left: 3rem;
+    padding-top: 2px; }
+    #user-profile .header .user-info #display-name {
+      font-size: 1.3rem; }
+    #user-profile .header .user-info #username {
+      font-size: 1rem; }
+    #user-profile .header .user-info button {
+      margin-left: 0; }
+  #user-profile .user-posts {
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 0.5rem; }
+    #user-profile .user-posts img {
+      width: 100px;
+      height: 100px;
+      border-radius: 0.55rem; }
+  #chat .chat-input {
+    max-width: 350px; } }

@@ -1,5 +1,6 @@
 #activity-posts {
   .activity {
+    width: 100%;
     margin-top: 1rem;
     padding-bottom: 1rem;
     display: flex;
@@ -15,6 +16,7 @@
     }
 
     .info {
+      width: 100%;
       display: flex;
       justify-content: space-between;
       .user-info {
@@ -36,7 +38,6 @@
       }
 
       .info-image {
-        margin-left: 15rem;
         img {
           height: 60px;
           width: 60px;

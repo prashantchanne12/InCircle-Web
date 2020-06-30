@@ -1,0 +1,89 @@
+@media (max-width: 500px) {
+  #navbar {
+    ul {
+      display: none;
+    }
+  }
+  #bottom-nav {
+    display: block;
+    overflow-x: auto;
+  }
+
+  #search-user {
+    input {
+      width: 80%;
+    }
+  }
+
+  #upload {
+    form > img {
+      width: 100%;
+      height: 200px;
+    }
+
+    .caption-field {
+      justify-content: flex-start;
+      padding: 0;
+      img {
+        width: 50px;
+        height: 50px;
+      }
+      #caption {
+        margin-left: 1.4rem;
+      }
+    }
+
+    .location-field {
+      justify-content: flex-start;
+      padding: 0;
+      padding-top: 1rem;
+      i {
+        margin-left: 0.55rem;
+      }
+    }
+
+    button {
+      margin: 0;
+      margin-top: 2rem;
+    }
+  }
+
+  #user-profile {
+    .header {
+      img {
+        height: 100px;
+        width: 100px;
+      }
+
+      .user-info {
+        padding-left: 3rem;
+        padding-top: 2px;
+
+        #display-name {
+          font-size: 1.3rem;
+        }
+        #username {
+          font-size: 1rem;
+        }
+        button {
+          margin-left: 0;
+        }
+      }
+    }
+    .user-posts {
+      img {
+        width: 100px;
+        height: 100px;
+        border-radius: 0.55rem;
+      }
+      grid-template-columns: repeat(3, 100px);
+      grid-gap: 0.5rem;
+    }
+  }
+
+  #chat {
+    .chat-input {
+      max-width: 350px;
+    }
+  }
+}

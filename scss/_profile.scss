@@ -76,6 +76,7 @@
       border-radius: 0.55rem;
     }
     display: grid;
+    justify-content: center;
     grid-template-columns: repeat(3, 240px);
     grid-gap: 0.5rem;
   }

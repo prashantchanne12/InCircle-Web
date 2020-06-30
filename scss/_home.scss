@@ -49,3 +49,29 @@
   height: 50px;
   width: 50px;
 }
+
+#bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+  background-color: #fff;
+  width: 100%;
+  ul {
+    display: flex;
+    align-self: center;
+    justify-content: space-evenly;
+    li {
+      padding-top: 1rem;
+      padding-right: 1rem;
+      align-items: center;
+
+      a {
+        color: grey;
+        .current {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}

@@ -5,6 +5,7 @@ const no_chat = document.querySelector('#no-chat');
 const screen_loader = document.querySelector('.screen-loader');
 const search_input = document.querySelector('#user');
 const user = JSON.parse(localStorage.getItem('currentUser'));
+const currentUserId = user.id;
 const chats = document.querySelector('#chats');
 let count;
 let count_2;
@@ -125,15 +126,16 @@ function getChatTiles(callback) {
     db.collection('chat_tiles')
         .doc(user.id)
         .collection('chat_users')
-        .get()
-        .then(querySnapshot => {
-            querySnapshot.forEach(document => {
+        .onSnapshot(snapshot => {
+            snapshot.docChanges().forEach(change => {
                 tile_counts++;
-                addChatTiles(document.data());
+
+                const doc = change.doc;
+                if (change.type === 'added') {
+                    addChatTiles(doc.data());
+                }
             });
             callback(tile_counts);
-        }).catch(e => {
-            console.log('Error: ', e);
         });
 }
 
@@ -144,7 +146,7 @@ function addChatTiles(data) {
     <img src="${data.photoUrl}" alt="" id="${data.id}">
     <div class="user-info">
         <span id="user-name">${data.username}</span>
-        <span id="message-count">5 new message</span>
+        <span id="message-count">click to chat</span>
     </div>
     `;
     div.innerHTML = html;
@@ -180,3 +182,7 @@ chats.addEventListener('click', e => {
 });
 
 
+// TODO
+// ONLINE - OFFLINE
+// NUMBER OF MESSAGES
+// UPDATE CHAT SCREEN UI
