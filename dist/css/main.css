@@ -657,6 +657,7 @@ form .btn-center button {
   #navbar ul {
     display: none; }
   #bottom-nav {
+    width: 100%;
     display: block;
     overflow-x: auto; }
   #search-user input {

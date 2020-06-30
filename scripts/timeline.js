@@ -17,10 +17,11 @@ class Timeline {
     }
 
     getTimeStamp() {
-        const when = dateFns.distanceInWordsToNow(
-            this.data.timestamp.toDate(),
-            { addSuffix: true }
-        );
+        const when = `${this.data.timestamp.toDate().toLocaleDateString()}`;
+        // dateFns.distanceInWordsToNow(
+        //     this.data.timestamp.toDate(),
+        //     { addSuffix: true }
+        // );
         return when;
     }
 

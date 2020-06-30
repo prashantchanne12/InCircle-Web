@@ -37,10 +37,12 @@ function addActivity(data) {
         text = "Commented on your post";
     }
 
-    const when = dateFns.distanceInWordsToNow(
-        data.timestamp.toDate(),
-        { addSuffix: true }
-    );
+    const when = `${data.timestamp.toDate().toLocaleDateString()}`;
+
+    // dateFns.distanceInWordsToNow(
+    //     data.timestamp.toDate(),
+    //     { addSuffix: true }
+    // );
 
     let postUrl;
     if (data.mediaUrl) {

@@ -34,10 +34,12 @@ function loadComments() {
 
 function addComments(doc) {
     const div = document.createElement('div');
-    const when = dateFns.distanceInWordsToNow(
-        doc.timestamp.toDate(),
-        { addSuffix: true }
-    );
+    const when = `${doc.timestamp.toDate().toLocaleDateString()}`;
+
+    // dateFns.distanceInWordsToNow(
+    //     doc.timestamp.toDate(),
+    //     { addSuffix: true }
+    // );
     const html = `
     <div class="header">
         <div class="user-info">

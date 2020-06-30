@@ -49,10 +49,11 @@ function updatePostUI(data) {
     mediaUrl = data.mediaUrl;
     post_loader.style.display = 'none';
     userLocation.textContent = data.location;
-    const when = dateFns.distanceInWordsToNow(
-        data.timestamp.toDate(),
-        { addSuffix: true }
-    );
+    const when = `${data.timestamp.toDate().toLocaleDateString()}`;
+    //  dateFns.distanceInWordsToNow(
+    //     data.timestamp.toDate(),
+    //     { addSuffix: true }
+    // );
     timeStamp.textContent = when;
     userName.textContent = data.username;
     userNameDesc.textContent = data.username;
