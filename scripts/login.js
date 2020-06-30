@@ -1,5 +1,6 @@
 const loginBtn = document.querySelector('.login');
 let user;
+
 loginBtn.addEventListener('click', e => {
     siginWithGoogle();
 });
@@ -47,8 +48,19 @@ function createUserInFirestore(userData) {
 
             // ADDING CURRENT USER TO LOCAL STORAG
             localStorage.setItem('currentUser', JSON.stringify(user));
-
-            window.location.replace('./screens/set_up_profile.html');
+            db.collection('users')
+                .doc(user.id)
+                .get()
+                .then(document => {
+                    const username = document.data();
+                    if (username.length !== 0) {
+                        window.location.replace('./screens/home.html');
+                    } else {
+                        window.location.replace('./screens/set_up_profile.html');
+                    }
+                }).catch(e => {
+                    console.log('Error: ', e);
+                });
 
         })
         .catch(err => {

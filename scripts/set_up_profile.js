@@ -16,6 +16,8 @@ img.setAttribute('src', profileUrl);
 img.style = 'width:110px; height:135px; padding-top:1rem; display:inline-block;'
 form.displayName.value = displayName;
 
+
+
 inputFile.addEventListener('change', e => {
     console.log(inputFile.files[0]);
     file = inputFile.files[0];

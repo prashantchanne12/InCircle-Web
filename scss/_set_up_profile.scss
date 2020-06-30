@@ -55,3 +55,11 @@ input[type="text"] {
   margin-left: 0;
   background-color: $primary-color;
 }
+
+.sign-out {
+  button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 1rem;
+  }
+}

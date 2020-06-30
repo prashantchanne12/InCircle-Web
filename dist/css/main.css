@@ -122,6 +122,11 @@ input[type="text"] {
   margin-left: 0;
   background-color: #0984e3; }
 
+.sign-out button {
+  display: block;
+  margin: 0 auto;
+  margin-top: 1rem; }
+
 .container {
   max-width: 800px;
   margin: 0 auto; }
@@ -260,7 +265,8 @@ form .btn-center button {
     #user-profile .header .user-info button {
       margin-top: 10px;
       border-radius: 2rem;
-      border: 1px solid #ccc; }
+      border: 1px solid #ccc;
+      max-width: 150px; }
 
 #user-profile .counts {
   padding-top: 3rem;
@@ -320,12 +326,9 @@ form .btn-center button {
   position: relative; }
   #user-profile .no-posts img {
     width: 100%;
-    height: 250px; }
+    height: 200px; }
   #user-profile .no-posts h2 {
-    position: absolute;
-    bottom: 0;
-    left: 40%;
-    margin: 0 auto; }
+    text-align: center; }
 
 #search-user input {
   width: 35%;
@@ -698,4 +701,12 @@ form .btn-center button {
       height: 100px;
       border-radius: 0.55rem; }
   #chat .chat-input {
-    max-width: 350px; } }
+    max-width: 350px; }
+  .no-posts img {
+    width: 100%;
+    height: 350px; }
+  .no-activity img {
+    width: 100%;
+    height: 350px; }
+  #no-chat img {
+    height: 350px; } }

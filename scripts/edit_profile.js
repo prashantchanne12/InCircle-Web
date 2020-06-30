@@ -4,6 +4,7 @@ const inputFile = document.querySelector('#img');
 const form = document.querySelector('form');
 const loader = document.querySelector('.loader');
 const alert = document.querySelector('.alert');
+const signoutBtn = document.querySelector('.sign-out');
 
 img.setAttribute('src', user.photoUrl);
 img.style = 'width:110px; height:135px; padding-top:1rem; display:inline-block;'
@@ -90,3 +91,13 @@ function addDataInFirestore(url) {
         console.log('Error: ', err);
     });
 }
+
+signoutBtn.addEventListener('click', e => {
+    e.preventDefault();
+    firebase.auth().signOut().then(function () {
+        // Sign-out successful.
+        window.location.replace('../index.html');
+    }).catch(function (error) {
+        // An error happened.
+    });
+});
