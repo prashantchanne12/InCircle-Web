@@ -78,7 +78,12 @@
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
         var db = firebase.firestore();
-
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+            } else {
+                window.location.replace('../index.html');
+            }
+        });
 
     </script>
     <script src="../scripts/edit_profile.js"></script>

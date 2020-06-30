@@ -24,10 +24,10 @@
                     <span id="username">Username</span>
                     <div class="buttons">
                         <button class="btn btn-primary btn-follow">Follow</button>
-                       <div class="btn-row">
-                        <button class="btn btn-light btn-unfollow">Unfollow</button>
-                        <button class="btn btn-primary btn-msg">Message</button>
-                       </div>
+                        <div class="btn-row">
+                            <button class="btn btn-light btn-unfollow">Unfollow</button>
+                            <button class="btn btn-primary btn-msg">Message</button>
+                        </div>
                     </div>
 
                 </div>
@@ -96,6 +96,13 @@
             firebase.initializeApp(firebaseConfig);
             firebase.analytics();
             var db = firebase.firestore();
+
+            firebase.auth().onAuthStateChanged(user => {
+                if (user) {
+                } else {
+                    window.location.replace('../index.html');
+                }
+            });
 
         </script>
         <script src="../scripts/user_profile.js"></script>

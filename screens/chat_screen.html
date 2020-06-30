@@ -23,7 +23,7 @@
             <div class="alert alert-primary" role="alert">
                 Message will be deleted in 15 seconds after reading.
             </div>
-            
+
             <div id="chat-msg-list">
             </div>
 
@@ -75,7 +75,12 @@
             firebase.initializeApp(firebaseConfig);
             firebase.analytics();
             var db = firebase.firestore();
-
+            firebase.auth().onAuthStateChanged(user => {
+                if (user) {
+                } else {
+                    window.location.replace('../index.html');
+                }
+            });
         </script>
         <script src="../scripts/chat_screen.js"></script>
 </body>

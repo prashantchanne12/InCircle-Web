@@ -81,7 +81,12 @@
         firebase.analytics();
         var db = firebase.firestore();
 
-      
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+            } else {
+                window.location.replace('../index.html');
+            }
+        });
     </script>
     <script src="../scripts/timeline.js"></script>
     <script src="../scripts/home.js"></script>

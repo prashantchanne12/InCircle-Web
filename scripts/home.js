@@ -8,9 +8,7 @@ let count = 0;
 
 loader.style.display = 'block';
 
-firebase.auth().onAuthStateChanged(user => {
-    console.log(user);
-});
+
 
 
 

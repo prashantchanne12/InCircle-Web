@@ -99,6 +99,13 @@
         firebase.analytics();
         var db = firebase.firestore();
 
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+            } else {
+                window.location.replace('../index.html');
+            }
+        });
+
     </script>
     <script src="../scripts/chat.js"></script>
 </body>
