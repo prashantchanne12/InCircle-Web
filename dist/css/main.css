@@ -268,15 +268,15 @@ form .btn-center button {
       border: 1px solid #ccc;
       max-width: 150px; }
 
-#user-profile .counts {
+#user-profile .header-counts {
   padding-top: 3rem;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   font-weight: bold;
   font-size: 1.1rem; }
-  #user-profile .counts #followers-count,
-  #user-profile .counts #following-count {
+  #user-profile .header-counts #followers-count,
+  #user-profile .header-counts #following-count {
     cursor: pointer; }
 
 #user-profile .counts-text {
@@ -288,12 +288,13 @@ form .btn-center button {
   #user-profile .counts-text #post {
     padding-left: 1.5rem; }
 
-#user-profile .icons {
+#user-profile .grid-icons {
+  cursor: pointer;
   padding-top: 3rem;
   display: flex;
   justify-content: space-evenly;
   align-items: center; }
-  #user-profile .icons .current {
+  #user-profile .grid-icons .current {
     color: #0984e3; }
 
 #user-profile .user-posts {
@@ -329,6 +330,9 @@ form .btn-center button {
     height: 200px; }
   #user-profile .no-posts h2 {
     text-align: center; }
+
+#user-posts-list > img {
+  display: none; }
 
 #search-user input {
   width: 35%;
@@ -417,9 +421,17 @@ form .btn-center button {
       color: #0984e3; }
 
 .buttons .btn-row {
-  display: flex; }
+  display: flex;
+  justify-content: center;
+  align-items: center; }
   .buttons .btn-row .btn-msg {
-    margin-left: 0.55rem; }
+    border: 1px solid #ddd;
+    background-color: #0984e3;
+    border-radius: 50%;
+    padding: 0.75rem;
+    margin-left: 0.4rem;
+    margin-top: 0.45rem;
+    color: #fff; }
 
 .buttons button {
   border: 0;

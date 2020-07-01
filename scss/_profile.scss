@@ -32,7 +32,7 @@
     }
   }
 
-  .counts {
+  .header-counts {
     padding-top: 3rem;
     display: flex;
     justify-content: space-evenly;
@@ -57,7 +57,8 @@
     }
   }
 
-  .icons {
+  .grid-icons {
+    cursor: pointer;
     padding-top: 3rem;
     display: flex;
     justify-content: space-evenly;
@@ -109,4 +110,8 @@
       text-align: center;
     }
   }
+}
+
+#user-posts-list > img {
+  display: none;
 }
