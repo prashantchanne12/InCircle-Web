@@ -9,7 +9,7 @@ https://incircle.netlify.app/
 
 ### Demo
 
-(https://github.com/prashantchanne12/InCircle-Web/blob/master/screenshots/in.gif?raw=true)
+![GitHub Logo](https://github.com/prashantchanne12/InCircle-Web/blob/master/screenshots/in.gif?raw=true)
 
 
 ---
