@@ -17,7 +17,7 @@ a {
 }
 
 body {
-  background-color: #fafafa;
+  background-color: $light-color;
   font-family: "Montserrat", sans-serif;
 }
 
@@ -102,5 +102,6 @@ body {
 @import "activity";
 @import "chat_screen";
 @import "counts";
+@import "edit_profile";
 
 @import "media";
