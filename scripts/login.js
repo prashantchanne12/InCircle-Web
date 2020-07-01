@@ -23,6 +23,13 @@ function siginWithGoogle() {
             .get()
             .then(document => {
                 if (document.exists) {
+                    const user = {
+                        id: firebaseUser.uid,
+                        displayName: firebaseUser.displayName,
+                        photoUrl: firebaseUser.photoURL,
+                        email: firebaseUser.email,
+                    }
+                    localStorage.setItem('currentUser', JSON.stringify(user));
                     window.location.replace('./screens/home.html');
                 } else {
                     createUserInFirestore(firebaseUser);
