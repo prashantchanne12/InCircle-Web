@@ -12,17 +12,20 @@ function siginWithGoogle() {
     firebase.auth().signInWithPopup(provider).then(function (result) {
         // This gives you a Google Access Token. You can use it to access the Google API.
         var token = result.credential.accessToken;
-        // The signed-in user info.
-        user = result.user;
+        // // The signed-in user info.
+        // user = result.user;
+
+        var firebaseUser = firebase.auth().currentUser;
+
 
         db.collection('users')
-            .doc(user.uid)
+            .doc(firebaseUser.uid)
             .get()
             .then(document => {
                 if (document.exists) {
                     window.location.replace('./screens/home.html');
                 } else {
-                    createUserInFirestore(user);
+                    createUserInFirestore(firebaseUser);
                 }
             }).catch(e => {
                 console.log('Error: ', e);
@@ -53,6 +56,8 @@ function createUserInFirestore(userData) {
         email: userData.email,
         username: '',
     }
+
+    localStorage.setItem('currentUser', JSON.stringify(user));
 
     db.collection('users').doc(userData.uid).set(user)
         .then(() => {

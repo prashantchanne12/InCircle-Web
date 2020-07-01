@@ -7,6 +7,7 @@ let file;
 const user = JSON.parse(localStorage.getItem('currentUser'));
 const loader = document.querySelector('.loader');
 
+console.log(user);
 
 let displayName = user.displayName ? user.displayName : 'HelloCutie11';
 const profileUrl = user.photoUrl ? user.photoUrl : 'https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png';
