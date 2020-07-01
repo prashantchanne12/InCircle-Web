@@ -14,7 +14,18 @@ function siginWithGoogle() {
         var token = result.credential.accessToken;
         // The signed-in user info.
         user = result.user;
-        createUserInFirestore(user);
+
+        db.collection('users')
+            .doc(user.id)
+            .get()
+            .then(document => {
+                if (document.exists) {
+                    window.location.replace('./screens/home.html');
+                } else {
+                    createUserInFirestore(user);
+                }
+            });
+
     }).catch(function (error) {
         // Handle Errors here.
         var errorCode = error.code;
@@ -33,7 +44,6 @@ function siginWithGoogle() {
 
 // ADD USER IN FIRESTORE
 function createUserInFirestore(userData) {
-    console.log(userData);
     const user = {
         id: userData.uid,
         displayName: userData.displayName,
@@ -45,23 +55,7 @@ function createUserInFirestore(userData) {
     db.collection('users').doc(userData.uid).set(user)
         .then(() => {
             console.log(`${userData.displayName} Added`);
-
-            // ADDING CURRENT USER TO LOCAL STORAG
-            localStorage.setItem('currentUser', JSON.stringify(user));
-            db.collection('users')
-                .doc(user.id)
-                .get()
-                .then(document => {
-                    const username = document.data().username;
-                    if (username.length !== 0) {
-                        window.location.replace('./screens/home.html');
-                    } else {
-                        window.location.replace('./screens/set_up_profile.html');
-                    }
-                }).catch(e => {
-                    console.log('Error: ', e);
-                });
-
+            window.location.replace('./screens/set_up_profile.html');
         })
         .catch(err => {
             console.log('Error: ', err);
