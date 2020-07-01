@@ -17,18 +17,18 @@ https://incircle.netlify.app/
 
 <p float="left">
   <img src="https://github.com/prashantchanne12/InCircle-Web/blob/master/screenshots/1.PNG" width="265" />
-  &nbsp&nbsp&nbsp
+  &nbsp&nbsp
   <img src="https://github.com/prashantchanne12/InCircle-Web/blob/master/screenshots/2.PNG" width="265" />
-  &nbsp&nbsp&nbsp
+  &nbsp&nbsp
   <img src="https://github.com/prashantchanne12/InCircle-Web/blob/master/screenshots/3.PNG" width="265" />
 </p>
 <br>
 <br>
 <p float="left">
   <img src="https://github.com/prashantchanne12/InCircle-Web/blob/master/screenshots/4.PNG" width="265" />
-  &nbsp&nbsp&nbsp
+  &nbsp&nbsp
   <img src="https://github.com/prashantchanne12/InCircle-Web/blob/master/screenshots/5.PNG" width="265" />
-  &nbsp&nbsp&nbsp&
+  &nbsp&nbsp
   <img src="https://github.com/prashantchanne12/InCircle-Web/blob/master/screenshots/6.PNG" width="265" />
 </p>
 
