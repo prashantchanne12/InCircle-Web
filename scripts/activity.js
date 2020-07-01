@@ -55,7 +55,7 @@ function addActivity(data) {
     <img src="${data.userProfileImage}" alt="" class="profile-img">
     <div class="info">
         <div class="user-info">
-            <span id="username" class="username" uid="${data.ownerId}">${data.username}</span>
+            <span id="username" class="username" uid="${data.userId}">${data.username}</span>
             <span id="detail" class="details">${text}</span>
             <span id="timestamp" class="timestamp">${when}</span>
         </div>

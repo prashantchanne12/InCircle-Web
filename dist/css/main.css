@@ -427,6 +427,7 @@ form .btn-center button {
   justify-content: center;
   align-items: center; }
   .buttons .btn-row .btn-msg {
+    display: none;
     border: 1px solid #ddd;
     background-color: #0984e3;
     border-radius: 50%;
