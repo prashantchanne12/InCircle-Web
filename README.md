@@ -4,10 +4,10 @@ Social media web app for your inner circle
 
 ---
 
-### Checkout Website
+## Checkout Website
 https://incircle.netlify.app/
 
-### Demo
+## Demo
 
 ![GitHub Logo](https://github.com/prashantchanne12/InCircle-Web/blob/master/screenshots/in.gif?raw=true)
 
