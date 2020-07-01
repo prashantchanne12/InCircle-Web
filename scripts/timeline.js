@@ -76,7 +76,7 @@ class Timeline {
             <img src="${photoUrl}" alt="" class="profileImg">
             <div class="data-info">
                 <span id="user-name" class="username">${this.data.username}</span>
-                <span id="location">${this.data.location}</span>
+                <span id="location" class="location">${this.data.location}</span>
             </div>
         </div>
         <div class="post-image">

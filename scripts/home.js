@@ -48,6 +48,21 @@ userPosts.addEventListener('click', e => {
 
         getProfile(user_id);
     }
+
+    if (e.target.classList.contains('user-post-header')) {
+        user_id = e.target.nextElementSibling.nextElementSibling.firstElementChild.firstElementChild.getAttribute('uid');
+
+        getProfile(user_id);
+
+    }
+
+    if (e.target.classList.contains('location')) {
+        user_id = e.target.parentElement.parentElement.nextElementSibling.nextElementSibling.firstElementChild.firstElementChild.getAttribute('uid');
+
+        getProfile(user_id);
+    }
+
+
 });
 
 function getProfile(user_id) {
