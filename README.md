@@ -24,7 +24,6 @@ https://incircle.netlify.app/
 </p>
 <br>
 <br>
-<br>
 <p float="left">
   <img src="https://github.com/prashantchanne12/InCircle-Web/blob/master/screenshots/4.PNG" width="280" />
   &nbsp&nbsp&nbsp&nbsp
@@ -33,6 +32,6 @@ https://incircle.netlify.app/
   <img src="https://github.com/prashantchanne12/InCircle-Web/blob/master/screenshots/6.PNG" width="280" />
 </p>
 
-
+---
 
 
