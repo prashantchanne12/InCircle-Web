@@ -563,6 +563,7 @@ form .btn-center button {
   border-bottom: 1px solid #eee;
   border-width: 50%; }
   #activity-posts .activity .profile-img {
+    cursor: pointer;
     margin-left: 1rem;
     height: 60px;
     width: 60px;
@@ -572,6 +573,7 @@ form .btn-center button {
     display: flex;
     justify-content: space-between; }
     #activity-posts .activity .info .user-info {
+      cursor: pointer;
       margin-left: 2rem;
       display: flex;
       flex-direction: column;
@@ -584,10 +586,12 @@ form .btn-center button {
       #activity-posts .activity .info .user-info #timestamp {
         font-size: 0.75rem;
         color: #aaa; }
-    #activity-posts .activity .info .info-image img {
-      height: 60px;
-      width: 60px;
-      border-radius: 0.5rem; }
+    #activity-posts .activity .info .info-image {
+      cursor: pointer; }
+      #activity-posts .activity .info .info-image img {
+        height: 60px;
+        width: 60px;
+        border-radius: 0.5rem; }
 
 #activity-posts .activity-loader img {
   display: none;

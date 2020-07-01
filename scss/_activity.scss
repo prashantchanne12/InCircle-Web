@@ -9,6 +9,7 @@
     border-width: 50%;
 
     .profile-img {
+      cursor: pointer;
       margin-left: 1rem;
       height: 60px;
       width: 60px;
@@ -20,6 +21,7 @@
       display: flex;
       justify-content: space-between;
       .user-info {
+        cursor: pointer;
         margin-left: 2rem;
         display: flex;
         flex-direction: column;
@@ -38,6 +40,7 @@
       }
 
       .info-image {
+        cursor: pointer;
         img {
           height: 60px;
           width: 60px;

@@ -55,15 +55,58 @@ function addActivity(data) {
     <img src="${data.userProfileImage}" alt="" class="profile-img">
     <div class="info">
         <div class="user-info">
-            <span id="username">${data.username}</span>
-            <span id="detail">${text}</span>
-            <span id="timestamp">${when}</span>
+            <span id="username" class="username" uid="${data.ownerId}">${data.username}</span>
+            <span id="detail" class="details">${text}</span>
+            <span id="timestamp" class="timestamp">${when}</span>
         </div>
-        <div class="info-image">
-            <img src="${postUrl ? postUrl : ""}" alt="">
+        <div class="info-image" pid="${data.postId}">
+            <img src="${postUrl ? postUrl : ""}" alt="" class="post_img">
         </div>
     </div>`;
 
     activity.appendChild(div);
 }
 
+let user_id;
+let post_id;
+
+activity.addEventListener('click', e => {
+    if (e.target.classList.contains('username')) {
+        user_id = e.target.getAttribute('uid');
+        getProfile(user_id);
+
+    }
+    if (e.target.classList.contains('details')) {
+        user_id = e.target.previousElementSibling.getAttribute('uid');
+        getProfile(user_id);
+
+    }
+    if (e.target.classList.contains('timestamp')) {
+        user_id = e.target.previousElementSibling.previousElementSibling.getAttribute('uid');
+        getProfile(user_id);
+
+    }
+    if (e.target.classList.contains('profile-img')) {
+        user_id = e.target.nextElementSibling.firstElementChild.firstElementChild.getAttribute('uid');
+        getProfile(user_id);
+    }
+
+    if (e.target.classList.contains('post_img')) {
+        post_id = e.target.parentElement.getAttribute('pid');
+        user_id = e.target.parentElement.previousElementSibling.firstElementChild.getAttribute('uid');
+
+        getPost(user_id, post_id);
+    }
+});
+
+function getProfile(user_id) {
+    localStorage.setItem('current_profile', user_id);
+    window.location = '../screens/user_profile.html';
+}
+
+function getPost(user_id, post_id) {
+    localStorage.setItem('current_profile', user_id);
+    localStorage.setItem('currentPost', post_id);
+
+    window.location = '../screens/post.html';
+}
