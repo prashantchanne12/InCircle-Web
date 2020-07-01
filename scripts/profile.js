@@ -37,6 +37,20 @@ let isLiked;
 //         });
 //     });
 
+followersCount.addEventListener('click', e => {
+    localStorage.setItem('current_profile', currentUserId);
+    localStorage.setItem('followers', true);
+    localStorage.setItem('following', false);
+    window.location = '../screens/counts.html';
+});
+
+followingCount.addEventListener('click', e => {
+    localStorage.setItem('current_profile', currentUserId);
+    localStorage.setItem('following', true);
+    localStorage.setItem('followers', false);
+    window.location = '../screens/counts.html';
+});
+
 loader.style.display = 'block';
 let count = 0;
 db.collection('posts')

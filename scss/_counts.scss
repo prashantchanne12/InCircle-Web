@@ -1,0 +1,46 @@
+#count-list {
+  padding-top: 2rem;
+  padding-left: 2rem;
+  .user-card {
+    padding-bottom: 0.55rem;
+    padding-top: 0.55rem;
+    padding-left: 0.55rem;
+    border-bottom: 1px solid #eee;
+    img {
+      height: 60px;
+      width: 60px;
+      border-radius: 0.55rem;
+    }
+
+    .user-info {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+
+    .user-details {
+      padding-left: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      .display-name {
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
+      .username {
+        font-size: 0.8rem;
+        color: grey;
+      }
+    }
+  }
+}
+
+#count-list > img {
+  display: none;
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  left: 45%;
+}

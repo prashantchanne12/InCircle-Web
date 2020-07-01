@@ -366,6 +366,8 @@ form .btn-center button {
       padding-top: 1px;
       color: grey; }
   #result #user-result img {
+    border-radius: 0.55rem;
+    margin-left: 0.55rem;
     width: 70px;
     height: 70px; }
   #result #user-result button {
@@ -670,6 +672,41 @@ form .btn-center button {
 .alert {
   display: none; }
 
+#count-list {
+  padding-top: 2rem;
+  padding-left: 2rem; }
+  #count-list .user-card {
+    padding-bottom: 0.55rem;
+    padding-top: 0.55rem;
+    padding-left: 0.55rem;
+    border-bottom: 1px solid #eee; }
+    #count-list .user-card img {
+      height: 60px;
+      width: 60px;
+      border-radius: 0.55rem; }
+    #count-list .user-card .user-info {
+      cursor: pointer;
+      display: flex;
+      align-items: center; }
+    #count-list .user-card .user-details {
+      padding-left: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start; }
+      #count-list .user-card .user-details .display-name {
+        font-size: 1.2rem;
+        font-weight: 600; }
+      #count-list .user-card .user-details .username {
+        font-size: 0.8rem;
+        color: grey; }
+
+#count-list > img {
+  display: none;
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  left: 45%; }
+
 @media (max-width: 500px) {
   #navbar ul {
     display: none; }
@@ -735,4 +772,9 @@ form .btn-center button {
     width: 100%;
     height: 350px; }
   #no-chat img {
-    height: 350px; } }
+    height: 350px; }
+  #count-list {
+    padding-left: 0rem;
+    padding-top: 0rem; }
+    #count-list .display-name {
+      font-size: 1rem; } }

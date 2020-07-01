@@ -29,6 +29,14 @@ getChatTiles(counts => {
 search_input.addEventListener('keyup', e => {
     no_chat.style.display = 'none';
 
+    if (!search_input.value.trim()) {
+
+        user_result.innerHTML = '';
+        chats.style.display = 'block';
+
+
+    }
+
     if (search_input.value.trim()) {
         count_2 = 0;
         user_result.innerHTML = '';
@@ -36,7 +44,7 @@ search_input.addEventListener('keyup', e => {
         chats.style.display = 'none';
         loader.style.display = 'block';
         db.collection('users')
-            .where('displayName', '<=', search_input.value)
+            .where('username', '<=', search_input.value)
             .get()
             .then(querySnapshot => {
                 user_result.innerHTML = '';
@@ -58,10 +66,6 @@ search_input.addEventListener('keyup', e => {
                 loader.style.display = 'none';
                 console.log('Error ', e);
             });
-    } else {
-        user_result.innerHTML = '';
-        chats.style.display = 'block';
-
     }
 });
 
@@ -75,7 +79,7 @@ form.addEventListener('submit', e => {
 
     const query = form.user.value.trim();
     db.collection('users')
-        .where('displayName', '<=', query)
+        .where('username', '<=', query)
         .get()
         .then(querySnapshot => {
             querySnapshot.forEach(document => {

@@ -37,6 +37,20 @@ db.collection('users')
 
     });
 
+followersCount.addEventListener('click', e => {
+    localStorage.setItem('current_profile', userId);
+    localStorage.setItem('followers', true);
+    localStorage.setItem('following', false);
+    window.location = '../screens/counts.html';
+});
+
+followingCount.addEventListener('click', e => {
+    localStorage.setItem('current_profile', userId);
+    localStorage.setItem('following', true);
+    localStorage.setItem('followers', false);
+    window.location = '../screens/counts.html';
+});
+
 function getPosts() {
 
     loader.style.display = 'block';
