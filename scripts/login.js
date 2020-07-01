@@ -16,7 +16,7 @@ function siginWithGoogle() {
         user = result.user;
 
         db.collection('users')
-            .doc(user.id)
+            .doc(user.uid)
             .get()
             .then(document => {
                 if (document.exists) {
@@ -24,6 +24,8 @@ function siginWithGoogle() {
                 } else {
                     createUserInFirestore(user);
                 }
+            }).catch(e => {
+                console.log('Error: ', e);
             });
 
     }).catch(function (error) {
