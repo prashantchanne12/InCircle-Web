@@ -4,5 +4,9 @@ Social media web app for your inner circle
 
 ---
 
-### Demo
+### Checkout Website
+https://incircle.netlify.app/
+
+---
+
 
