@@ -133,14 +133,16 @@ input[type="text"] {
 
 #navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: #fff;
   position: sticky;
   top: 0;
-  z-index: 1; }
+  z-index: 1;
+  box-shadow: 3px 3px 10px 1px rgba(207, 205, 205, 0.1); }
   #navbar ul {
     display: flex;
-    align-self: center; }
+    align-self: center;
+    justify-content: flex-end; }
     #navbar ul li {
       padding-top: 1rem;
       padding-left: 1rem;
@@ -750,10 +752,16 @@ form .btn-center button {
   width: 45px; }
 
 @media (max-width: 500px) {
-  #navbar ul {
-    display: none; }
+  #navbar {
+    justify-content: flex-start; }
+    #navbar h2 {
+      padding-left: 1rem;
+      font-size: 1.5rem; }
+    #navbar ul {
+      display: none; }
   #bottom-nav {
     width: 100%;
+    background-color: #fff;
     display: block;
     overflow-x: auto; }
   #search-user input {

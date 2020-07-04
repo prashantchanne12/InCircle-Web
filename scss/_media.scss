@@ -1,11 +1,17 @@
 @media (max-width: 500px) {
   #navbar {
+    justify-content: flex-start;
+    h2 {
+      padding-left: 1rem;
+      font-size: 1.5rem;
+    }
     ul {
       display: none;
     }
   }
   #bottom-nav {
     width: 100%;
+    background-color: #fff;
     display: block;
     overflow-x: auto;
   }

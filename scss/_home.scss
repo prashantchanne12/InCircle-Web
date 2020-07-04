@@ -5,15 +5,16 @@
 
 #navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: #fff;
   position: sticky;
   top: 0;
   z-index: 1;
-
+  box-shadow: 3px 3px 10px 1px rgba(207, 205, 205, 0.1);
   ul {
     display: flex;
     align-self: center;
+    justify-content: flex-end;
 
     li {
       padding-top: 1rem;
@@ -75,4 +76,3 @@
     }
   }
 }
-
